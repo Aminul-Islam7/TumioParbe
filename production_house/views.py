@@ -1,5 +1,5 @@
 from urllib import response
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -162,20 +162,21 @@ class ResourceCreate(CreateView):
     form_class = ResourceCreateForm
     template_name = 'production_house/resource_create.html'
     # success_url = reverse_lazy('resources')
-    # fields = ['title', 'content', 'course', 'session', 'batches']
     
-    def get_success_url(self):
+    # def get_success_url(self):
+    #     view_id = self.kwargs['pk']
+    #     if 'post' in self.request.POST:
+    #         return reverse('resources')
 
-        if 'post' in self.request.POST:
-            return reverse('resources')
-
-        elif 'attach-file' in self.request.POST:
-            return reverse('courses')
-
+    #     elif 'attach-file' in self.request.POST:
+    #         return reverse('resource', kwargs={"pk": view_id})
+        
         
     def form_valid(self, form):
         form.instance.author = self.request.user
-        return super().form_valid(form)
+        self.object = form.save()
+        return redirect(reverse("resource-detail", kwargs={"pk": self.object.pk}))
+        
 
 
 class ResourceUpdate(UpdateView):
