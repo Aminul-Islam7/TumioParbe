@@ -46,7 +46,7 @@ class Batch(models.Model):
 
 
 class Resource(models.Model):
-    title = models.CharField(max_length=255, null=True, blank=True)
+    title = models.CharField(max_length=255, null=True, blank=True, default='Untitled')
     content = HTMLField(null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     posted_on = models.DateTimeField(default=timezone.now)
