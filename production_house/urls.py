@@ -27,4 +27,5 @@ urlpatterns = [
     path('resources/', views.ResourceList.as_view(), name='resources'),
     path('resource/<int:pk>/', views.ResourceDetail.as_view(), name='resource-detail'),
     path('post-resource/', views.ResourceCreate.as_view(), name='resource-create'),
+    path('resource/attach-file/', views.ResourceCreate.as_view(), name='resource-attach-file'),
 ]

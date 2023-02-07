@@ -1,6 +1,6 @@
 from urllib import response
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import ResourceCreateForm
@@ -161,11 +161,22 @@ class ResourceCreate(CreateView):
     model = Resource
     form_class = ResourceCreateForm
     template_name = 'production_house/resource_create.html'
-    success_url = reverse_lazy('resources')
+    # success_url = reverse_lazy('resources')
+    # fields = ['title', 'content', 'course', 'session', 'batches']
+    
+    def get_success_url(self):
 
+        if 'post' in self.request.POST:
+            return reverse('resources')
+
+        elif 'attach-file' in self.request.POST:
+            return reverse('courses')
+
+        
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
 
 class ResourceUpdate(UpdateView):
     model = Resource

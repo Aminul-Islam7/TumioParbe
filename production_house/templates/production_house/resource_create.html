@@ -3,17 +3,18 @@
 
 {% block content %}
 
-  <legend class="border-bottom mb-1 mt-2">Add Resource</legend>
-  <form action="" method="post">
-    {% csrf_token %}
-    <fieldset class="form-group">
-      {{ form.media.js }}
-      {{ form|crispy }}
-    </fieldset>
-    <div class="form-group">
-      <a class="btn btn-secondary mt-2" href="{% url 'courses' %}">Cancel</a>
-      <button class="btn btn-primary mt-2" type="submit">Post</button>
-    </div>
-  </form>
- 
+<legend class="border-bottom mb-1 mt-2">Add Resource</legend>
+<form action="" method="post">
+  {% csrf_token %}
+  <fieldset class="form-group">
+    {{ form.media.js }}
+    {{ form|crispy }}
+  </fieldset>
+  <div class="form-group">
+    <a class="btn btn-secondary mt-2" href="{% url 'courses' %}">Cancel</a>
+    <button class="btn btn-primary mt-2" type="submit" name="attach-file">Attach File</button>
+    <button class="btn btn-primary mt-2" type="submit" name="post">Post</button>
+  </div>
+</form>
+
 {% endblock content %}

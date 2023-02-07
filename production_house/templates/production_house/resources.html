@@ -1,29 +1,29 @@
 {% extends "production_house/base.html" %}
 {% load production_house_extras %}
 {% block content %}
-  <legend class="border-bottom mb-1 mt-2">Resources</legend>
+<legend class="border-bottom mb-1 mt-2">Resources</legend>
 
-  <div class="row">
-    {% if user.is_student %}
-      {% for batch in user.student.batches.all %}
-        {% for resource in batch.resources.all %}
-          {% include 'production_house/resources_snippet.html' %}
-        {% endfor %}
-      {% endfor %}
-    {% elif user.is_teacher %}
-      {% for course in user.teacher.courses.all %}
-        {% for resource in course.resources.all %}
-          {% include 'production_house/resources_snippet.html' %}
-        {% endfor %}
-      {% endfor %}
-    {% elif user.is_admin %}
-      {% for resource in resources %}
-        {% include 'production_house/resources_snippet.html' %}
-      {% endfor %}
-    {% endif %}
-  </div>
-  
-  <a class="btn btn-primary ms-1 mt-3" href="{% url 'resource-create'%}">Add Resource</a>
+<a class="btn btn-primary ms-1 mt-3" href="{% url 'resource-create'%}">Add Resource</a>
 
- 
+<div class="row">
+  {% if user.is_student %}
+  {% for batch in user.student.batches.all %}
+  {% for resource in batch.resources.all %}
+  {% include 'production_house/resources_snippet.html' %}
+  {% endfor %}
+  {% endfor %}
+  {% elif user.is_teacher %}
+  {% for course in user.teacher.courses.all %}
+  {% for resource in course.resources.all %}
+  {% include 'production_house/resources_snippet.html' %}
+  {% endfor %}
+  {% endfor %}
+  {% elif user.is_admin %}
+  {% for resource in resources %}
+  {% include 'production_house/resources_snippet.html' %}
+  {% endfor %}
+  {% endif %}
+</div>
+
+
 {% endblock content %}
