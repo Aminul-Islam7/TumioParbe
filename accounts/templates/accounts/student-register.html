@@ -1,0 +1,28 @@
+{% extends "core/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<fieldset class="form-group">
+  <legend class="border-bottom mt-2 mb-2 pb-2">Student Registration</legend>
+  <small class="text-muted">
+    Fields marked with * are required.
+  </small>
+  <div class="mb-5" style="max-width: 600px">
+    <form enctype="multipart/form-data"  action="" method="post">
+      {% csrf_token %}
+        {% crispy user_form %}
+        {% crispy student_form %}
+        <div class="form-group mt-3">
+          <button class="btn btn-outline-info" type="submit">Sign Up</button>
+        </div>
+      </form>
+    </fieldset>
+    <div class="border-top pt-2 mt-3">
+      <small class="text-muted">
+        Already have an account? <a href="{% url 'login' %}" class="ms-1">Login</a>
+      </small>
+    </div>
+  </div>
+
+{% endblock content %}

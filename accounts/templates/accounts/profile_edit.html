@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+  <legend class="border-bottom mt-2 mb-2 pb-2">Profile</legend>
+  <div class="mb-5" style="max-width: 600px">
+      <form enctype="multipart/form-data" action="" method="POST">
+        {% csrf_token %}
+        {% crispy user_form %}
+        {% crispy profile_form %}
+        <div class="form-group mt-3">
+          <button class="btn btn-outline-info" type="submit">Save</button>
+        </div>
+      </form>
+  </div>
+
+{% endblock content %}

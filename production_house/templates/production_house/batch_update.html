@@ -1,0 +1,8 @@
+{% extends "production_house/update_form_base.html" %}
+
+{% block info %}
+  <legend class="border-bottom mb-4">Edit Batch</legend>
+  <strong>Course:</strong> {{ batch.session.course.title }}
+  <br>
+  <strong>Session:</strong> {{ batch.session.title }}
+{% endblock info %}

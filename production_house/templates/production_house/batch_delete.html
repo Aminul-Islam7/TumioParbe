@@ -1,0 +1,6 @@
+{% extends "production_house/delete_form_base.html" %}
+
+{% block message %}
+  <legend class="border-bottom mb-4 mt-2">Delete Batch</legend>
+  <h4>Are you sure you want to delete the batch '{{ batch.title }}' from '{{ batch.session.title }}' session of the course '{{ batch.session.course.title }}'?</h4>
+{% endblock message %}

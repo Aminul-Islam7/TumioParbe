@@ -1,0 +1,571 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>তুমিও পারবে - শিশু কিশোর পারফর্মিং প্ল্যাটফর্ম</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+Bengali:wght@100;200;300;400;500;600;700;800;900&family=Noto+Serif+Bengali:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/all.css">
+  <link rel="stylesheet" href="/css/slick.css">
+  <link rel="stylesheet" href="/css/lc_lightbox.min.css">
+  <link rel="stylesheet" href="/css/minimal.css">
+  <link rel="stylesheet" href="/css/aos.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+
+</head>
+
+<body>
+
+
+  <header>
+    <div id="logo-bar">
+      <div class="border"></div>
+      <div class="logo-holder">
+        <div class="fix-left">
+          <img src="/media/static/logo_holder_left_fix.svg">
+        </div>
+        <figure class="logo">
+          <img src="/media/static/logo.png" alt="Tumio Parbe" width="100px">
+        </figure>
+        <div class="fix-right">
+          <img src="/media/static/logo_holder_right_fix.svg">
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- BANNERS -->
+
+    <div id="banner">
+      <div class="overlay">
+        <div class="intro container">
+          <figure class="logo">
+            <img src="/media/static/logo.png" alt="Tumio Parbe">
+            <figcaption>
+              <h1>তুমিও পারবে</h1>
+            </figcaption>
+          </figure>
+          <h2 class="tagline">
+            A Performing & Visual Arts Platform
+            <br>
+            only for Kids & Teenagers
+          </h2>
+          <p class="action-text">Join our facebook group and showcase your talents!</p>
+          <a class="light-btn" href="https://facebook.com/groups/TumioParbe/" target="_blank">Join now</a>
+          <div class="socials">
+            <a target="_blank" href="https://youtube.com/তুমিওপারবে/">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a target="_blank" href="https://instagram.com/TumioParbe/">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a target="_blank" href="https://facebook.com/TumioParbeOfficial/">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a target="_blank" href="https://twitter.com/TumioParbe/">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a target="_blank" href="https://wa.me/+8801612777712/">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a target="_blank" href="https://linkedin.com/company/TumioParbe/">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+        <img class="wave" src="/media/static/banner-wave.svg" alt="">
+      </div>
+      <video autoplay muted preload="auto" loop playsinline poster="">
+        <source src="/media/static/banner-video.mp4" type="video/mp4">
+      </video>
+    </div>
+
+
+  </header>
+
+  <main>
+
+    <!-- -- ─── COURSES SECTION STARTS ───────────────────────────────────────────── -->
+
+    <section id="courses">
+      <div class="container">
+        <div class="section-title" data-aos="fade">
+          <h2>Our Courses</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6 col-12 course-holder" data-aos="fade-right">
+            <a href="{% url 'course1' %}">
+              <div class="course">
+                <figure class="thumbnail">
+                  <img src="/media/static/courses/bangla_course_thumbnail.jpg"
+                    alt="বাংলা প্রমিত ভাষার শুদ্ধ উচ্চারণ ও আবৃত্তি, আবৃত্তি, উপস্থাপনা, অভিনয়, লাইভ শো. Course Instructor: Shamima Akter">
+                </figure>
+                <div class="title">
+                  <p>Live Online Classes</p>
+                  <h3 style="font-family: 'Noto Sans Bengali', sans-serif;">শুদ্ধ উচ্চারণ ও আবৃত্তি
+                  </h3>
+                </div>
+                <div class="details">
+                  <p class="price">
+                    ৳ 300
+                    <span class="price-extra">(Monthly)</span>
+                  </p>
+                  <a href="{% url 'course1' %}">Details <i class="fa-solid fa-arrow-right-long-to-line"></i></a>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-6 col-12 course-holder" data-aos="fade-left">
+            <a href="#">
+              <div class="course">
+                <figure class="thumbnail">
+                  <img src="/media/static/courses/english_course_thumbnail.jpg"
+                    alt="Mastering Spoken English. Speaking, Reading, Listening. Duration: 6 months. Course Instructor: Lenah Mehzabin">
+                </figure>
+                <div class="title">
+                  <p>Live Online Course</p>
+                  <h3>Mastering Spoken English</h3>
+                </div>
+                <div class="details">
+                  <p class="price">
+                    <span class="price-extra">
+                      <del>৳ 1800</del>
+                    </span>
+                    ৳ 1440
+                  </p>
+                  <a href="#">Details <i class="fa-solid fa-arrow-right-long-to-line"></i></a>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -- ─── AWARDS SECTION STARTS ───────────────────────────────────────────── -->
+
+    <section id="awards" data-aos="fade-up">
+      <div class="section-title" data-aos="fade">
+        <h2>Awarded Performers</h2>
+        <p>These awards were presented based on the performances on our <a
+            href="https://facebook.com/groups/TumioParbe/" target="_blank"><u>facebook group</u></a> in 2021.</p>
+      </div>
+      <picture class="award-slider" data-aos="fade-up">
+        <a title="Aaditya Raj Bhowmick" href="/media/static/awards/Aaditya Raj Bhowmick.jpg"><img
+            src="/media/static/awards/Aaditya Raj Bhowmick.jpg"
+            alt="Aaditya Raj Bhowmick with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Azra Binte Mujahid" href="/media/static/awards/Azra Binte Mujahid.jpg"><img
+            src="/media/static/awards/Azra Binte Mujahid.jpg"
+            alt="Azra Binte Mujahid with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Dishan Roy Durjoy" href="/media/static/awards/Dishan Roy Durjoy.jpg"><img
+            src="/media/static/awards/Dishan Roy Durjoy.jpg"
+            alt="Dishan Roy Durjoy with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Ehan Isfar Mahmud" href="/media/static/awards/Ehan Isfar Mahmud.jpg"><img
+            src="/media/static/awards/Ehan Isfar Mahmud.jpg"
+            alt="Ehan Isfar Mahmud with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Humaira Tabassum Tuya" href="/media/static/awards/Humaira Tabassum Tuya.jpg"><img
+            src="/media/static/awards/Humaira Tabassum Tuya.jpg"
+            alt="Humaira Tabassum Tuya with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Innocent Bhor Alex" href="/media/static/awards/Innocent Bhor Alex.jpg"><img
+            src="/media/static/awards/Innocent Bhor Alex.jpg"
+            alt="Innocent Bhor Alex with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Ishrak Shasmin Ilma" href="/media/static/awards/Ishrak Shasmin Ilma.jpg"><img
+            src="/media/static/awards/Ishrak Shasmin Ilma.jpg"
+            alt="Ishrak Shasmin Ilma with Tumio Parbe CHAMPION ARTIST 2021 crest in hands"></a>
+        <a title="Jannatul Maisha" href="/media/static/awards/Jannatul Maisha.jpg"><img
+            src="/media/static/awards/Jannatul Maisha.jpg"
+            alt="Jannatul Maisha with Tumio Parbe ALL-ROUNDER 2021 crest in hands"></a>
+        <a title="Kazi Kabisha" href="/media/static/awards/Kazi Kabisha.jpg"><img
+            src="/media/static/awards/Kazi Kabisha.jpg"
+            alt="Kazi Kabisha with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Md. Safwan Rahman" href="/media/static/awards/Md. Safwan Rahman.jpg"><img
+            src="/media/static/awards/Md. Safwan Rahman.jpg"
+            alt="Md. Safwan Rahman with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Merry Uttamsha Chakma" href="/media/static/awards/Merry Uttamsha Chakma.jpg"><img
+            src="/media/static/awards/Merry Uttamsha Chakma.jpg"
+            alt="Merry Uttamsha Chakma with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Muhammad Abdul Muktadir Raiyan" href="/media/static/awards/Muhammad Abdul Muktadir Raiyan.jpg"><img
+            src="/media/static/awards/Muhammad Abdul Muktadir Raiyan.jpg"
+            alt="Muhammad Abdul Muktadir Raiyan with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Nazifa Marjia Orna" href="/media/static/awards/Nazifa Marjia Orna.jpg"><img
+            src="/media/static/awards/Nazifa Marjia Orna.jpg"
+            alt="Nazifa Marjia Orna with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Onnesha Bhowmick Shuvosree" href="/media/static/awards/Onnesha Bhowmick Shuvosree.jpg"><img
+            src="/media/static/awards/Onnesha Bhowmick Shuvosree.jpg"
+            alt="Onnesha Bhowmick Shuvosree with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Ramisa Anjum Adrita" href="/media/static/awards/Ramisa Anjum Adrita.jpg"><img
+            src="/media/static/awards/Ramisa Anjum Adrita.jpg"
+            alt="Ramisa Anjum Adrita with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Raqiqa Shahla Zaima" href="/media/static/awards/Raqiqa Shahla Zaima.jpg"><img
+            src="/media/static/awards/Raqiqa Shahla Zaima.jpg"
+            alt="Raqiqa Shahla Zaima with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Sangita Das" href="/media/static/awards/Sangita Das.jpg"><img
+            src="/media/static/awards/Sangita Das.jpg"
+            alt="Sangita Das with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Sharin Shasmin Ifra" href="/media/static/awards/Sharin Shasmin Ifra.jpg"><img
+            src="/media/static/awards/Sharin Shasmin Ifra.jpg"
+            alt="Sharin Shasmin Ifra with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="Takia Rashid Tuba" href="/media/static/awards/Takia Rashid Tuba.jpg"><img
+            src="/media/static/awards/Takia Rashid Tuba.jpg"
+            alt="Takia Rashid Tuba with Tumio Parbe ALL-ROUNDER 2021 crest in hands"></a>
+        <a title="Zafrin Samiha Liyana" href="/media/static/awards/Zafrin Samiha Liyana.jpg"><img
+            src="/media/static/awards/Zafrin Samiha Liyana.jpg"
+            alt="Zafrin Samiha Liyana with Tumio Parbe BEST PERFORMER 2021 crest in hands"></a>
+        <a title="" href="/media/static/awards/Zahin Mahnoor Onnesha.jpg"><img
+            src="/media/static/awards/Zahin Mahnoor Onnesha.jpg"
+            alt="Zahin Mahnoor Onnesha with Tumio Parbe ALL-ROUNDER 2021 crest in hands"></a>
+        <a title="Zahira Zaman Muniba" href="/media/static/awards/Zahira Zaman Muniba.jpg"><img
+            src="/media/static/awards/Zahira Zaman Muniba.jpg"
+            alt="Zahira Zaman Muniba with Tumio Parbe ALL-ROUNDER 2021 crest in hands"></a>
+        <a title="Zahra Zaman Munera" href="/media/static/awards/Zahra Zaman Munera.jpg"><img
+            src="/media/static/awards/Zahra Zaman Munera.jpg"
+            alt="Zahra Zaman Munera with Tumio Parbe ALL-ROUNDER 2021 crest in hands"></a>
+      </picture>
+
+      <!-- <a class="light-btn" href="#" data-aos="fade">View all <i class="fa-solid fa-arrow-right-long-to-line"></i></a> -->
+    </section>
+
+
+    <!-- -- ─── ABOUT SECTION STARTS ───────────────────────────────────────────── -->
+
+    <section id="about">
+      <div class="section-title" data-aos="fade">
+        <h2>About Us</h2>
+      </div>
+
+      <div class="container">
+        <div class="row" data-aos="fade-up">
+          <figure class="ceo col-sm-6 col-12" data-aos="fade-right">
+            <div class="img-holder">
+              <img src="/media/static/ceo_shamima_akter.jpg" alt="Shamima Akter">
+            </div>
+            <figcaption>
+              <h3>Shamima Akter</h3>
+              <p>Founder & CEO, Tumio Parbe</p>
+              <div class="socials">
+                <a href="tel:+8801612777712">
+                  <i class="fa-solid fa-phone"></i>
+                </a>
+                <a target="_blank" href="https://youtube.com/channel/UCMxmjxQ2Ijwf6EXEEN4c7Kg/">
+                  <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a target="_blank" href="https://facebook.com/ShamimaAkterArts/">
+                  <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a target="_blank" href="https://linkedin.com/">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+              </div>
+            </figcaption>
+          </figure>
+          <article class="about-text col-sm-6 col-12" data-aos="fade-left">
+            We are a Talent Media Platform for K-12 children, parents and mentors. Children with interest in all forms
+            of arts,
+            science and sports can connect with us to showcase their performance to a global audience, get appropiate
+            grooming from
+            interactive digital classrooms with expert mentors and find opportunities to compete in the field of
+            interest.
+            <br>
+            <br>
+            <p class="vision">
+              <strong>
+                <i class="fa-duotone fa-quote-left"></i>
+                Our Vision
+              </strong>
+              <br>
+              To create a safe and innovation driven ecosystem for new generation of child artists and talents.
+            </p>
+          </article>
+        </div>
+      </div>
+
+
+
+      <!-- -- ─── GALLERY SECTION STARTS ───────────────────────────────────────────── -->
+      <section id="gallery">
+        <div class="section-title" data-aos="fade">
+          <h2>Gallery</h2>
+        </div>
+        <div class="row galleries" data-aos="fade-up">
+          <div class="col-xl-8 col-12 yt" data-aos="fade-right">
+            <div class="elfsight-app-90f5f671-d74e-4abb-958b-74bbb5682367"></div>
+          </div>
+          <div class="col-xl-4 col-12 fb" data-aos="fade-left">
+            <div class="elfsight-app-2ff93db7-b273-48d0-a301-298d047c6f74"></div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- -- ─── CONTACT SECTION STARTS ───────────────────────────────────────────── -->
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Contact Us</h2>
+        </div>
+
+        <div class="row items">
+
+          <div class="col-lg-5" data-aos="fade-right">
+            <div class="item">
+              <div class="info">
+                <div class="icon-holder">
+                  <i class="far fa-mobile"></i>
+                </div>
+                <div class="details">
+                  <div class="title">Phone:</div>
+                  <div class="description">
+                    <a href="tel:+880 1612-777712">+880&nbsp;1612&#8209;777712</a>
+                  </div>
+                </div>
+              </div>
+              <div class="info">
+                <div class="icon-holder">
+                  <i class="far fa-envelope"></i>
+                </div>
+                <div class="details">
+                  <div class="title">Email:</div>
+                  <div class="description">
+                    <a href="mailto:hello@tumioparbe.com">hello@tumioparbe.com</a>
+                  </div>
+                </div>
+              </div>
+              <div class="info">
+                <div class="icon-holder">
+                  <i class="far fa-map-marker-alt"></i>
+                </div>
+                <div class="details">
+                  <div class="title">Location:</div>
+                  <div class="description">
+                    <p class="m-0"> Chattogram, Bangladesh</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="socials">
+                <a target="_blank" href="https://youtube.com/@TumioParbe/">
+                  <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a target="_blank" href="https://instagram.com/TumioParbe/">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a target="_blank" href="https://facebook.com/TumioParbeOfficial/">
+                  <i class="fa-brands fa-facebook"></i>
+                </a>
+                <p class="breaker"></p>
+                <a target="_blank" href="https://twitter.com/TumioParbe/">
+                  <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a target="_blank" href="https://wa.me/+8801612777712/">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a target="_blank" href="https://linkedin.com/company/TumioParbe/">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7" data-aos="fade-left">
+            <form onsubmit="show_alert();" class="item contact-form"
+              action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Name</label>
+                  <input type="text" name="name" id="name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" id="email" placeholder="john.doe@gmail.com" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" name="subject" id="subject">
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea name="message" rows="4" placeholder="Hello there!" required=></textarea>
+              </div>
+
+              <button class="submit-btn" name='submit' type="submit">Send Message</button>
+
+              <script>
+                function show_alert() {
+                  alert("<?php echo $msg ?>");
+                }
+              </script>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <section id="navbar">
+    <!-- <p id="motto">
+            সুপ্ত প্রতিভা ও সৃজনশীলতা চর্চায়
+            <br>
+            গড়ে উঠবে সুস্থ পৃথিবী
+          </p> -->
+    <nav>
+      <ul>
+
+        <li class="nav-item active">
+          <a href="#">
+            <span class="title">Home</span>
+            <span class="icon"><i class="fa-light fa-house"></i></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#courses">
+            <span class="title">Courses</span>
+            <span class="icon"><i class="fa-light fa-graduation-cap"></i></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#awards">
+            <span class="title">Awards</span>
+            <span class="icon"><i class="fa-light fa-award"></i></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#about">
+            <span class="title">About</span>
+            <span class="icon"><i class="fa-light fa-circle-info"></i></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact">
+            <span class="title">Contact</span>
+            <span class="icon"><i class="fa-light fa-address-card"></i></span>
+          </a>
+        </li>
+        <div class="indicator">
+          <div class="left-handle"></div>
+          <div class="right-handle"></div>
+        </div>
+      </ul>
+    </nav>
+  </section>
+  <footer>
+    <section id="top">
+      <img class="wave" src="assets/img/footer-wave.svg" alt="Wave Image">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-sm-6">
+            <div class="links item">
+              <h3>Useful Links</h3>
+              <ul>
+                <li><i class="fas fa-chevron-right"></i><a href="#">Home</a></li>
+                <li><i class="fas fa-chevron-right"></i><a href="#about">About us</a></li>
+                <li><i class="fas fa-chevron-right"></i><a href="#awards">Awards</a></li>
+                <li><i class="fas fa-chevron-right"></i><a href="#courses">শুদ্ধ উচ্চারণ ও আবৃত্তি (Course)</a></li>
+                <li><i class="fas fa-chevron-right"></i><a href="#courses">Mastering Spoken
+                    English (Course)</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="logo item">
+              <img src="/media/static/logo.png" alt="Tumio Parbe">
+            </div>
+            <div class="tagline">
+              <p class="m-0">শিশু-কিশোর পারফর্মিং প্ল্যাটফর্ম</p>
+            </div>
+            <div class="details middle">
+              <a href="#footer">Terms of services</a>
+              <span>|</span>
+              <a href="#footer">Privacy policy</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="links item end">
+              <h3>Reach us</h3>
+              <div class="details">
+                <p>
+                  <br>
+                  Chattogram, Bangladesh
+                  <br>
+                  <br>
+                  <strong>Phone:</strong>
+                  <a href="tel:+880 1612-777712">+88&nbsp;01612&#8209;777712</a>
+                  <br>
+                  <strong>Email:</strong>
+                  <a href="mailto:hello@tumioparbe.com">hello@tumioparbe.com</a>
+                  <br>
+                  Join our <a target="_blank" href="https://facebook.com/groups/TumioParbe/"><strong>Facebook
+                      Group</strong></a>
+                </p>
+                <div class="socials">
+                  <a target="_blank" href="https://youtube.com/@TumioParbe/">
+                    <i class="fa-brands fa-youtube"></i>
+                  </a>
+                  <a target="_blank" href="https://instagram.com/TumioParbe/">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                  <a target="_blank" href="https://facebook.com/TumioParbeOfficial/">
+                    <i class="fa-brands fa-facebook"></i>
+                  </a>
+                  <a target="_blank" href="https://twitter.com/TumioParbe/">
+                    <i class="fa-brands fa-twitter"></i>
+                  </a>
+                  <a target="_blank" href="https://wa.me/+8801612777712/">
+                    <i class="fa-brands fa-whatsapp"></i>
+                  </a>
+                  <a target="_blank" href="https://linkedin.com/company/TumioParbe/">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bottom">
+      <div class="container">
+        <div class="copyright">
+          Copyright 2022 &copy; <a href="https://www.tumioparbe.com/">Tumio Parbe</a>
+        </div>
+        <div class="credits">
+          Designed & Developed with <i class="fas fa-heart"></i> by <a href="#footer">Aminul Islam</a>
+        </div>
+      </div>
+    </section>
+
+  </footer>
+
+  <script src="core/js/jquery-3.6.0.min.js"></script>
+  <script src="core/js/lc_lightbox.lite.min.js"></script>
+  <script src="core/js/bootstrap.bundle.min.js"></script>
+  <script src="core/js/slick.min.js"></script>
+  <script src="core/js/aos.js"></script>
+  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+  <script src="core/js/script.js"></script>
+</body>
+
+</html>

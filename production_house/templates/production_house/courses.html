@@ -1,0 +1,90 @@
+{% extends "production_house/base.html" %}
+
+{% block content %}
+  <legend class="border-bottom mb-1 mt-2">Courses</legend>
+
+  <div class="row">
+    {% for course in courses %}
+      <div class="col-lg-4 col-md-6 mt-4">
+        <div style="background-color: #fff; width: 100%; padding: 25px; border: 1px solid #ddd; border-radius: 5px;">
+          <h3>{{ course.title }}</h3>
+          <br>
+          <strong>Total Students: </strong>{{ course.students.count }}
+          <br>
+          <strong>
+            {% if course.teachers.count > 1 %}
+              Instructors:
+            {% else %}
+              Instructor:
+            {% endif %}
+          </strong>
+          {% for teacher in course.teachers.all %}
+            {% if forloop.counter < course.teachers.count %}
+              {{ teacher }},
+            {% else %}
+              {{ teacher }}
+            {% endif %}
+          {% endfor %}
+
+          <br>
+          <br>
+          <p>
+            Sessions: ({{ course.sessions.count }})
+            <a class="btn btn-primary btn-sm float-end" href="{% url 'session-create' course.id%}">Add Session</a>
+          </p>
+
+          <div class="accordion">
+            {% for session in course.sessions.all %}
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSession{{ session.id }}">
+                  <strong>{{ session.title }}&nbsp;</strong>
+                  {% if session.students.count == 1 %}
+                    ({{ session.students.count }} student)
+                  {% else %}
+                    ({{ session.students.count }} students)
+                  {% endif %}
+                </button>
+              </h2>
+              <div id="collapseSession{{ session.id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ session.id }}">
+                <div class="accordion-body">
+                  <a class="btn btn-secondary btn-sm ms-2 float-end" href="{% url 'session-update' session.id %}">Edit Session</a>
+                  <a class="btn btn-outline-danger btn-sm float-end" href="{% url 'session-delete' session.id %}">Delete Session</a>
+                  <div class="clearfix"></div>
+                  <strong>Batches: </strong>
+                  <ul>
+                    {% for batch in session.batches.all %}
+                      <li class="mt-2">
+                        {{ batch }}
+                        {% if batch.students.count == 1 %}
+                          ({{ batch.students.count }} student)
+                        {% else %}
+                          ({{ batch.students.count }} students)
+                        {% endif %}
+                        <br>
+                        <a class="btn btn-secondary btn-sm ms-2" href="{% url 'batch-update' batch.id %}">Edit</a>
+                        <a class="btn btn-outline-danger btn-sm ms-1" href="{% url 'batch-delete' batch.id %}">Delete</a>
+                      </li> 
+                    {% endfor %}
+                  </ul>
+                  <a class="btn btn-primary btn-sm float-end" href="{% url 'batch-create' course.id session.id%}">Add Batch</a>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <br>
+          <a class="btn btn-secondary ms-2 float-end" href="{% url 'course-update' course.id %}">Edit Course</a>
+          <a class="btn btn-outline-danger float-end" href="{% url 'course-delete' course.id %}">Delete Course</a>
+          <div class="clearfix"></div>
+        </div>
+        
+      </div>
+    {% endfor %}
+  </div>
+  
+  <a class="btn btn-primary ms-1 mt-3" href="{% url 'course-create'%}">New Course</a>
+
+ 
+{% endblock content %}

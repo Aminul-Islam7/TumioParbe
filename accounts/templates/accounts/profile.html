@@ -1,0 +1,88 @@
+{% extends "core/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+  <div class="mb-5" style="max-width: 600px; text-align: center; margin: 0 auto;">
+    <legend class="border-bottom mt-2 mb-2 pb-2">Profile</legend>
+    {% if user.is_student %}
+      <div class="mb-3" style="width: 600px; text-align: center; background-color: #fff; width: 100%; padding: 25px; border: 1px solid #ddd; border-radius: 5px;">
+        <div class="rounded-circle" style="width: 150px; height: 150px; overflow: hidden; margin: 0 auto;">
+          <img src="{{ user.student.image.url }}" width="100%" alt="Profie Picture">
+        </div>
+        <br>
+        <h3 class="fs-5 mt-2">{{ user.username }} </h3>
+        <ul style="list-style: none; text-align: left;">
+          <li><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</li>
+          <li><strong>School:</strong> {{ user.student.school }}</li>
+          <li><strong>Class:</strong> {{ user.student.grade }}</li>
+          <li><strong>Birthdate:</strong> {{ user.student.birth_date|date:"d M Y"  }}</li>
+          <li><strong>Email:</strong> {{ user.email }}</li>
+          <li><strong>Phone:</strong> {{ user.phone }}</li>
+          <li><strong>Facebook:</strong> {{ user.student.facebook }}</li>
+          <li><strong>Father's Name:</strong> {{ user.student.father_name }}</li>
+          <li><strong>Father's Phone:</strong> {{ user.student.father_phone }}</li>
+          <li><strong>Mother's Name:</strong> {{ user.student.mother_name }}</li>
+          <li><strong>Mother's phone:</strong> {{ user.student.mother_phone }}</li>
+          <li><strong>Address:</strong>
+            <br>
+            {% if user.student.flat %}
+              Flat # {{ user.student.flat }},
+            {% endif %}
+            {% if user.student.house %}
+              House # {{ user.student.house }},
+            {% endif %}
+            {% if user.student.road %}
+              Road # {{ user.student.road }},
+            {% endif %}
+            {% if user.student.area %}
+              {{ user.student.area }},
+            {% endif %}
+            {% if user.student.city %}
+              {{ user.student.city }},
+            {% endif %}
+            {% if user.student.state %}
+              {{ user.student.state }},
+            {% endif %}
+            {% if user.student.country %}
+              {{ user.student.country.name }}.
+            {% endif %}
+            <br>
+            {% if user.student.zip %}
+              Zip: {{ user.student.zip }}
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    {% elif user.is_teacher %}
+      <div class="mb-3" style="width: 600px; text-align: center; background-color: #fff; width: 100%; padding: 25px; border: 1px solid #ddd; border-radius: 5px;">
+        <div class="rounded-circle" style="width: 150px; height: 150px; overflow: hidden; margin: 0 auto;">
+          <img src="{{ user.teacher.image.url }}" width="100%" alt="Profie Picture">
+        </div>
+        <br>
+        <h3 class="fs-5 mt-2">{{ user.username }} </h3>
+        <ul style="list-style: none; text-align: left;">
+          <li><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</li>
+          <li><strong>Birthdate:</strong> {{ user.teacher.birth_date|date:"d M Y"  }}</li>
+          <li><strong>Email:</strong> {{ user.email }}</li>
+          <li><strong>Phone:</strong> {{ user.phone }}</li>
+          <li><strong>Facebook:</strong> {{ user.teacher.facebook }}</li>
+      </div>
+    {% elif user.is_admin %}
+      <div class="mb-3" style="width: 600px; text-align: center; background-color: #fff; width: 100%; padding: 25px; border: 1px solid #ddd; border-radius: 5px;">
+        <div class="rounded-circle" style="width: 150px; height: 150px; overflow: hidden; margin: 0 auto;">
+          <img src="{{ user.admin.image.url }}" width="100%" alt="Profie Picture">
+        </div>
+        <br>
+        <h3 class="fs-5 mt-2">{{ user.username }} </h3>
+        <ul style="list-style: none; text-align: left;">
+          <li><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</li>
+          <li><strong>Email:</strong> {{ user.email }}</li>
+          <li><strong>Phone:</strong> {{ user.phone }}</li>
+      </div>
+    {% endif %}
+    <a class="btn btn-primary" href="{% url 'password_change' %}">Change Password</a>
+    <a class="btn btn-primary" href="{% url 'edit-profile' %}">Edit Profile</a>
+  </div>
+
+{% endblock content %}

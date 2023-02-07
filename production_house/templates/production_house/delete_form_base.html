@@ -1,0 +1,19 @@
+{% extends "production_house/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+  <div class="content-section">
+    <form action="" method="post">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        {% block message %}{% endblock %}
+      </fieldset>
+      <div class="form-group">
+        <a class="btn btn-secondary mt-2" href="{% url 'courses' %}">Cancel</a>
+        <button class="btn btn-outline-danger mt-2" type="submit">Delete</button>
+      </div>
+    </form>
+  </div>
+ 
+{% endblock content %}

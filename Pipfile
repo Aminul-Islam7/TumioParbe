@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-tinymce = "*"
+django-smart-selects = "*"
+django-crispy-forms = "*"
+django-countries = "*"
+djangorestframework = "*"
+django-cleanup = "*"
+pillow = "*"
+python-dateutil = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"

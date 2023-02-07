@@ -1,0 +1,109 @@
+/* 320-575 => Extra Small -> col
+576-767 => Small -> col-sm
+768-991 => Medium -> col-md
+992-1199 => large -> col-lg
+1200-1399 => Extra large col-xl 
+1400 => Extra Extra large -> col-xxl */
+@media (max-width: 575px) {
+  header #banner .overlay .intro {
+    top: 6%;
+  }
+  header #banner .overlay .intro .logo img {
+    width: 170px;
+  }
+  header #banner .overlay .intro .tagline {
+    font-size: 28px;
+    line-height: 38px;
+  }
+  header #banner .overlay .intro .action-text {
+    font-size: 18px;
+  }
+  header #banner .overlay .intro .socials {
+    display: none;
+  }
+  .section-title h2 {
+    font-size: 36px;
+  }
+  #courses {
+    padding: 110px 0 10px;
+  }
+  #courses .row {
+    padding: 0;
+  }
+  #courses .row .course .title p {
+    font-size: 16px;
+  }
+  #courses .row .course .title h3 {
+    font-size: 24px;
+  }
+  #courses .row .course .details .price {
+    font-size: 18px;
+  }
+  #courses .row .course .details .price .price-extra {
+    font-size: 18px;
+  }
+  #courses .row .course .details a {
+    font-size: 18px;
+  }
+  #awards {
+    padding: 100px 0 10px;
+  }
+  #awards .award-slider img {
+    height: auto;
+    width: 100%;
+  }
+  #about {
+    padding: 100px 0 10px;
+  }
+  #about .row {
+    flex-flow: column-reverse;
+  }
+  #about .about-text {
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 18px;
+    text-align: center;
+  }
+  #about .about-text .vision {
+    margin-top: 15px;
+  }
+  #about .about-text .vision strong i {
+    top: -30px;
+    left: 22px;
+    font-size: 70px;
+  }
+  #about .ceo figcaption h3 {
+    font-size: 28px;
+  }
+  #about .ceo figcaption p {
+    font-size: 18px;
+  }
+  #gallery .fb {
+    display: none;
+  }
+  #contact {
+    padding: 100px 0 150px;
+  }
+  #contact .items .item .info {
+    flex-direction: column;
+    align-items: center;
+  }
+  #contact .items .item .info .details {
+    margin: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+  #contact .items .item .socials {
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
+  #contact .items .item .socials .breaker {
+    width: 100%;
+  }
+  #contact .items .item .socials a {
+    margin: 10px 3px 0;
+  }
+  #contact .items .item {
+    margin-bottom: 25px;
+  }
+}/*# sourceMappingURL=responsive.css.map */

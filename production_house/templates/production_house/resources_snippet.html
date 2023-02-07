@@ -1,0 +1,54 @@
+<div class="col-xl-4 col-lg-6 col-sm-12 mt-4">
+  <div style="background-color: #fff; width: 100%; padding: 25px; border: 1px solid #ddd; border-radius: 5px;">
+    <div class="rounded-circle" style="width: 50px; height: 50px; overflow: hidden;">
+      <img src="
+        {% if resource.author.is_teacher %}
+          {{ resource.author.teacher.image.url }}
+        {% elif resource.author.is_admin %}
+          {{ resource.author.admin.image.url }}
+        {% endif %}
+      " alt="Author Profile Pic" width="100%">
+    </div>
+    <p class="m-0"> {{resource.author.first_name }} {{resource.author.last_name }}</p>
+    <p>
+      <a class="small text-muted text-decoration-none" href="{% url 'resource-detail' resource.id %}">
+      {{resource.posted_on|date:'d M Y' }} at {{resource.posted_on|date:'g:i a' }}
+      </a>
+    </p>
+    <h3 class="fs-5"> {{resource.title }}</h3>
+    <p class="text-muted">{{ resource.content|safe }}</p>
+    <div class="resource-files">
+      {% for file in resource.files.all %}
+        {% if file.type == 'I' %}
+          <!-- <img width="100%" src="{{ file.file.url }}" alt="{{ file.title }} Image"> -->
+          <a class="resource-image" title="{{ file.title }}" href="{{ file.file.url }}">
+            <img width="100%" src="{{ file.file.url }}" alt="{{ file.title }} Image"/>
+          </a>
+        {% elif file.type == 'V' %}
+          <video width="100%" controls>
+            <source src="{{ file.file.url }}">
+          </video>
+        {% elif file.type == 'A' %}
+          <audio width="100%" controls>
+            <source src="{{ file.file.url }}">
+          </audio>
+        {% elif file.type == 'D' %}
+          <!-- <embed src="{{ file.file.url }}" width="800px" height="2100px" /> -->
+        {% endif %}
+        <p class="small text-muted">{{ file.title }}</p>
+        {% endfor %}
+      </div>
+      <p class="small text-muted m-0">
+        {% for batch in resource.batches.all %}
+          {% if forloop.counter < resource.batches.count %}
+            {{ batch.title }},
+          {% else %}
+            {{ batch.title }}
+          {% endif %}
+        {% endfor %}
+        ({{ resource.session.title }})
+        <br>
+        {{ resource.course.title }}
+      </p>
+  </div>
+</div>
