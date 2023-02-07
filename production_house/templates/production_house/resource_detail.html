@@ -17,7 +17,7 @@
         <p class="m-0"> {{resource.author.first_name }} {{resource.author.last_name }}</p>
         <p class="small text-muted"> {{resource.posted_on|date:'d M Y' }} at {{resource.posted_on|date:'g:i a' }} </p>
         <h3 class="fs-5"> {{resource.title }}</h3>
-        <p class="text-muted">{{ resource.content }}</p>
+        <p class="text-muted">{{ resource.content|safe }}</p>
         <div class="resource-files">
           {% for file in resource.files.all %}
             {% if file.type == 'I' %}
@@ -39,6 +39,7 @@
             <p class="small text-muted">{{ file.title }}</p>
           {% endfor %}
         </div>
+    
         <p class="small text-muted m-0">
           {{ resource.batch.title }}
           ({{ resource.session.title }})
@@ -46,6 +47,9 @@
           {{ resource.course.title }}
         </p>
       </div>
+      
+      <a class="btn btn-primary ms-1 mt-3" href="{% url 'resource-create'%}">Add Files</a>
+    
     </div>
   {% else %}
     <div class="alert alert-info">
