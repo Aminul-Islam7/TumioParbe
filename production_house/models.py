@@ -83,7 +83,7 @@ class File(models.Model):
         (TYPE_DOCUMENT, 'Document'),
     ]
 
-    title = models.CharField(max_length=255, null=True, blank=True)
+    title = models.CharField(max_length=255, null=True, blank=True, default="Untitled")
     file = models.FileField(null=True, blank=True, upload_to='files')
     type = models.CharField(
         max_length=1, choices=FILE_TYPES)
