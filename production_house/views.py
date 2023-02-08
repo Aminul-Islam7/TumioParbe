@@ -4,7 +4,7 @@ from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import ResourceCreateForm
-from .models import Course, Resource, Session, Batch
+from .models import Course, File, Resource, Session, Batch
 
 
 # Create your views here.
@@ -161,16 +161,6 @@ class ResourceCreate(CreateView):
     model = Resource
     form_class = ResourceCreateForm
     template_name = 'production_house/resource_create.html'
-    # success_url = reverse_lazy('resources')
-    
-    # def get_success_url(self):
-    #     view_id = self.kwargs['pk']
-    #     if 'post' in self.request.POST:
-    #         return reverse('resources')
-
-    #     elif 'attach-file' in self.request.POST:
-    #         return reverse('resource', kwargs={"pk": view_id})
-        
         
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -196,3 +186,21 @@ class ResourceDelete(DeleteView):
         if Session.objects.filter(Resource_id=kwargs['pk']).count() > 0:
             return render(request, 'production_house/resource_nodelete.html')
         return self.delete(request, *args, **kwargs)
+
+class FileCreate(CreateView):
+    model = File
+    fields = ['title', 'file', 'type']
+    template_name = 'production_house/resource_add_file.html'
+    success_url = reverse_lazy('resources')
+
+    def form_valid(self, form):
+        form.instance.resource = Resource.objects.get(id=self.kwargs['resource_id'])
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['resource'] = Resource.objects.get(id=self.kwargs['resource_id'])
+        return context
+    
+    def test_func(self):
+        return self.request.user.is_admin
