@@ -1,21 +1,22 @@
 from django import forms
+from django.forms import formset_factory
 from accounts.models import Teacher
-from .models import Batch, Course, Resource
+from .models import Batch, Course, File, Resource
 
 class ResourceCreateForm(forms.ModelForm):
-  course = forms.ModelChoiceField(queryset=Course.objects.all())
-
-
-
-  # def __init__(self, *args, **kwargs):
-  #   self.request = kwargs.pop("request")
-  #   super(ResourceCreateForm, self).__init__(*args, **kwargs)
-  #   if self.request.user.is_admin:
-  #     self.fields['course'].queryset = Course.objects.all()
-  #   elif self.instance.user.is_teacher:
-  #     self.fields['course'].queryset = Course.objects.filter(id__in=Teacher.objects.filter(user_id=self.request.user.id))
-
-
+  file = forms.FileField(
+          required=False,
+          widget=forms.ClearableFileInput(attrs={'name': 'file', 'multiple': True})
+     )
   class Meta:
         model = Resource
-        fields = ['course', 'session', 'batches', 'title', 'content']
+        fields = ['course', 'session', 'batches', 'title', 'content', 'file']
+
+
+class UploadedFileForm(forms.ModelForm):
+    class Meta:
+        model = File
+        fields = ['file']
+
+
+UploadedFileFormSet = formset_factory(UploadedFileForm, extra=1)

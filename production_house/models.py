@@ -65,30 +65,17 @@ class Resource(models.Model):
                               horizontal=True,
                               auto_choose=True,
                               related_name='resources')
+    
+    file = models.FileField(upload_to='resource_files', null=True, blank=True)
+
+
 
     def __str__(self):
         return self.title
 
 
 class File(models.Model):
-    TYPE_IMAGE = 'I'
-    TYPE_VIDEO = 'V'
-    TYPE_AUDIO = 'A'
-    TYPE_DOCUMENT = 'D'
-
-    FILE_TYPES = [
-        (TYPE_IMAGE, 'Image'),
-        (TYPE_VIDEO, 'Video'),
-        (TYPE_AUDIO, 'Audio'),
-        (TYPE_DOCUMENT, 'Document'),
-    ]
-
-    title = models.CharField(max_length=255, null=True, blank=True, default="Untitled")
-    file = models.FileField(null=True, blank=True, upload_to='files')
-    type = models.CharField(
-        max_length=1, choices=FILE_TYPES)
+    file = models.FileField(null=True, blank=True, upload_to='uploads')
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE,
                                  related_name='files')
 
-    def __str__(self):
-        return self.title

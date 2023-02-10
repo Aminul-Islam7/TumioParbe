@@ -17,26 +17,28 @@
     </p>
     <h3 class="fs-5"> {{resource.title }}</h3>
     <p class="text-muted">{{ resource.content|safe }}</p>
+    {% for imagetype in image_types %}
+      <!-- <p>{{imagetype}}</p> -->
+    {% endfor %}
     <div class="resource-files">
       {% for file in resource.files.all %}
-        {% if file.type == 'I' %}
-          <!-- <img width="100%" src="{{ file.file.url }}" alt="{{ file.title }} Image"> -->
-          <a class="resource-image" title="{{ file.title }}" href="{{ file.file.url }}">
-            <img width="100%" src="{{ file.file.url }}" alt="{{ file.title }} Image"/>
+        {% if file.file.url.lower|slice:"-4:" in image_types %}
+          <a class="resource-image" href="{{ file.file.url }}">
+            <img width="100%" src="{{ file.file.url }}" alt="Resource Image"/>
           </a>
-        {% elif file.type == 'V' %}
+        {% elif file.file.url.lower|slice:"-4:" in video_types %}
           <video width="100%" controls>
             <source src="{{ file.file.url }}">
           </video>
-        {% elif file.type == 'A' %}
+        {% elif file.file.url.lower|slice:"-4:" in audio_types %}
           <audio width="100%" controls>
             <source src="{{ file.file.url }}">
           </audio>
-        {% elif file.type == 'D' %}
+        {% elif file.file.url.lower|slice:"-4:" in document_types %}
           <!-- <embed src="{{ file.file.url }}" width="800px" height="2100px" /> -->
         {% endif %}
-        <p class="small text-muted">{{ file.title }}</p>
-        {% endfor %}
+        <p class="small text-muted">{{ file.id }}</p>
+      {% endfor %}
       </div>
       <p class="small text-muted m-0">
         {% for batch in resource.batches.all %}

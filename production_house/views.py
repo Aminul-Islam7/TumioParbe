@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .forms import ResourceCreateForm
+from .forms import ResourceCreateForm, UploadedFileFormSet
 from .models import Course, File, Resource, Session, Batch
 
 
@@ -149,6 +149,16 @@ class ResourceList(ListView):
     template_name = 'production_house/resources.html'
     context_object_name = 'resources'
     ordering = ['-posted_on']
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['image_types'] = ['jpeg', '.jpg', '.png', '.gif']
+        context['video_types'] = ['.mp4', '.wmv', '.mkv', '-flv', '.flv', 'webm', 'mpeg']
+        context['audio_types'] = ['.mp4', '.mp3',  '.m4a', '.wav', '-wav', '.ogg']
+        context['document_types'] = ['.pdf']
+
+        return context
     
 
 class ResourceDetail(DetailView):
@@ -161,12 +171,17 @@ class ResourceCreate(CreateView):
     model = Resource
     form_class = ResourceCreateForm
     template_name = 'production_house/resource_create.html'
-        
+    success_url = reverse_lazy('resources')
+
     def form_valid(self, form):
         form.instance.author = self.request.user
-        self.object = form.save()
-        return redirect(reverse("resource-detail", kwargs={"pk": self.object.pk}))
-        
+
+        resource = form.save() 
+        for file in self.request.FILES.getlist('file'):
+            File.objects.create(resource=resource, file=file)
+
+        return super(ResourceCreate, self).form_valid(form)
+     
 
 
 class ResourceUpdate(UpdateView):

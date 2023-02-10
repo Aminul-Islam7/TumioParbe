@@ -42,7 +42,7 @@ class ResourceAdmin(admin.ModelAdmin):
 
 @admin.register(File)
 class FileAdmin(admin.ModelAdmin):
-    list_display = ['title', 'id', 'resource']
+    list_display = ['id', 'resource']
     list_filter = ['resource']
     list_select_related = ['resource']
     search_fields = ['resource']

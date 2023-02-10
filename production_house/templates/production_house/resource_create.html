@@ -4,7 +4,7 @@
 {% block content %}
 
 <legend class="border-bottom mb-1 mt-2">Add Resource</legend>
-<form action="" method="post">
+<form enctype="multipart/form-data" action="" method="post">
   {% csrf_token %}
   <fieldset class="form-group">
     {{ form.media.js }}
