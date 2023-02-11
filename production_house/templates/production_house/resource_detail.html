@@ -35,7 +35,10 @@
             {% elif file.file.url.lower|slice:"-4:" in document_types %}
               <!-- <embed src="{{ file.file.url }}" width="800px" height="2100px" /> -->
             {% endif %}
-            <a class="btn btn-outline-danger float-end" href="{% url 'file-delete' file.id %}?next={% url 'resource-detail' resource.id %}">Delete</a>
+            
+            {% if user == resource.author %}
+              <a class="btn btn-outline-danger float-end" href="{% url 'file-delete' file.id %}?next={% url 'resource-detail' resource.id %}">Delete</a>
+            {% endif %}
           {% endfor %}
         </div>
     
@@ -45,9 +48,12 @@
           <br>
           {{ resource.course.title }}
         </p>
-        <a class="btn btn-secondary ms-2 float-end" href="{% url 'resource-update' resource.id %}?next={% url 'resource-detail' resource.id %}">Edit</a>
-        <a class="btn btn-outline-danger float-end" href="{% url 'resource-delete' resource.id %}">Delete</a>
-        <div class="clearfix"></div>
+        
+        {% if user == resource.author %}
+          <a class="btn btn-secondary ms-2 float-end" href="{% url 'resource-update' resource.id %}?next={% url 'resource-detail' resource.id %}">Edit</a>
+          <a class="btn btn-outline-danger float-end" href="{% url 'resource-delete' resource.id %}">Delete</a>
+          <div class="clearfix"></div>
+        {% endif %}
       </div>
       
     

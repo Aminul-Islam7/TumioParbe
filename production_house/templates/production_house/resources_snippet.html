@@ -51,8 +51,10 @@
         <br>
         {{ resource.course.title }}
       </p>
-      <a class="btn btn-secondary ms-2 float-end" href="{% url 'resource-update' resource.id %}">Edit</a>
-      <a class="btn btn-outline-danger float-end" href="{% url 'resource-delete' resource.id %}">Delete</a>
-      <div class="clearfix"></div>
+      {% if user == resource.author %}
+        <a class="btn btn-secondary ms-2 float-end" href="{% url 'resource-update' resource.id %}">Edit</a>
+        <a class="btn btn-outline-danger float-end" href="{% url 'resource-delete' resource.id %}">Delete</a>
+        <div class="clearfix"></div>
+      {% endif %}
   </div>
 </div>

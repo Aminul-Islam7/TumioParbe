@@ -191,7 +191,7 @@ class ResourceCreate(CreateView):
      
 
 
-class ResourceUpdate(UpdateView):
+class ResourceUpdate(UserPassesTestMixin, UpdateView):
     model = Resource
     form_class = ResourceCreateForm
     template_name = 'production_house/resource_update.html'
@@ -208,14 +208,21 @@ class ResourceUpdate(UpdateView):
         success_url = self.request.GET.get('next', self.success_url)
         return success_url
 
+    def test_func(self):
+        resource = self.get_object()
+        return self.request.user == resource.author
 
-class ResourceDelete(DeleteView):
+class ResourceDelete(UserPassesTestMixin, DeleteView):
     model = Resource
     template_name = 'production_house/resource_delete.html'
     success_url = reverse_lazy('resources')
+    
+    def test_func(self):
+        resource = self.get_object()
+        return self.request.user == resource.author
 
 
-class FileDelete(DeleteView):
+class FileDelete(UserPassesTestMixin, DeleteView):
     model = File
     template_name = 'production_house/file_delete.html'
     success_url = reverse_lazy('resources')
@@ -229,3 +236,7 @@ class FileDelete(DeleteView):
     def get_success_url(self):
         success_url = self.request.GET.get('next', self.success_url)
         return success_url
+
+    def test_func(self):
+        file = self.get_object()
+        return self.request.user == file.resource.author
