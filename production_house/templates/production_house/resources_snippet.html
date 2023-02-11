@@ -37,7 +37,6 @@
         {% elif file.file.url.lower|slice:"-4:" in document_types %}
           <!-- <embed src="{{ file.file.url }}" width="800px" height="2100px" /> -->
         {% endif %}
-        <p class="small text-muted">{{ file.id }}</p>
       {% endfor %}
       </div>
       <p class="small text-muted m-0">
@@ -52,5 +51,8 @@
         <br>
         {{ resource.course.title }}
       </p>
+      <a class="btn btn-secondary ms-2 float-end" href="{% url 'resource-update' resource.id %}">Edit</a>
+      <a class="btn btn-outline-danger float-end" href="{% url 'resource-delete' resource.id %}">Delete</a>
+      <div class="clearfix"></div>
   </div>
 </div>

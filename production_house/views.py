@@ -3,11 +3,19 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .forms import ResourceCreateForm, UploadedFileFormSet
+from .forms import ResourceCreateForm
 from .models import Course, File, Resource, Session, Batch
 
 
 # Create your views here.
+
+def getfiletype(file_type):
+    file_type['image_types'] = ['jpeg', '.jpg', '.png', '.gif']
+    file_type['video_types'] = ['.mp4', '.wmv', '.mkv', '-flv', '.flv', 'webm', 'mpeg']
+    file_type['audio_types'] = ['.mp4', '.mp3',  '.m4a', '.wav', '-wav', '.ogg']
+    file_type['document_types'] = ['.pdf']
+
+    return file_type
 
 
 def dashboard(request):
@@ -152,12 +160,7 @@ class ResourceList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
-        context['image_types'] = ['jpeg', '.jpg', '.png', '.gif']
-        context['video_types'] = ['.mp4', '.wmv', '.mkv', '-flv', '.flv', 'webm', 'mpeg']
-        context['audio_types'] = ['.mp4', '.mp3',  '.m4a', '.wav', '-wav', '.ogg']
-        context['document_types'] = ['.pdf']
-
+        context = getfiletype(context)
         return context
     
 
@@ -166,6 +169,10 @@ class ResourceDetail(DetailView):
     template_name = 'production_house/resource_detail.html'
     context_object_name = 'resource'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = getfiletype(context)
+        return context
 
 class ResourceCreate(CreateView):
     model = Resource
@@ -186,10 +193,20 @@ class ResourceCreate(CreateView):
 
 class ResourceUpdate(UpdateView):
     model = Resource
-    fields = ['title']
+    form_class = ResourceCreateForm
     template_name = 'production_house/resource_update.html'
-    # context_object_name = 'Resources'
     success_url = reverse_lazy('resources')
+
+    def form_valid(self, form):
+        resource = form.save() 
+        for file in self.request.FILES.getlist('file'):
+            File.objects.create(resource=resource, file=file)
+
+        return super(ResourceUpdate, self).form_valid(form)
+
+    def get_success_url(self):
+        success_url = self.request.GET.get('next', self.success_url)
+        return success_url
 
 
 class ResourceDelete(DeleteView):
@@ -197,25 +214,18 @@ class ResourceDelete(DeleteView):
     template_name = 'production_house/resource_delete.html'
     success_url = reverse_lazy('resources')
 
-    def post(self, request, *args, **kwargs):
-        if Session.objects.filter(Resource_id=kwargs['pk']).count() > 0:
-            return render(request, 'production_house/resource_nodelete.html')
-        return self.delete(request, *args, **kwargs)
 
-class FileCreate(CreateView):
+class FileDelete(DeleteView):
     model = File
-    fields = ['title', 'file', 'type']
-    template_name = 'production_house/resource_add_file.html'
+    template_name = 'production_house/file_delete.html'
     success_url = reverse_lazy('resources')
-
-    def form_valid(self, form):
-        form.instance.resource = Resource.objects.get(id=self.kwargs['resource_id'])
-        return super().form_valid(form)
+    context_object_name = 'file'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['resource'] = Resource.objects.get(id=self.kwargs['resource_id'])
+        context = getfiletype(context)
         return context
     
-    def test_func(self):
-        return self.request.user.is_admin
+    def get_success_url(self):
+        success_url = self.request.GET.get('next', self.success_url)
+        return success_url

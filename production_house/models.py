@@ -66,7 +66,7 @@ class Resource(models.Model):
                               auto_choose=True,
                               related_name='resources')
     
-    file = models.FileField(upload_to='resource_files', null=True, blank=True)
+    file = models.FileField(upload_to='uploads', null=True, blank=True)
 
 
 

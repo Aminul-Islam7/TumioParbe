@@ -21,8 +21,8 @@
         <div class="resource-files">
           {% for file in resource.files.all %}
             {% if file.file.url.lower|slice:"-4:" in image_types %}
-              <a class="resource-image" title="{{ file.id }}" href="{{ file.file.url }}">
-                <img width="100%" src="{{ file.file.url }}" alt="{{ file.id }} Image"/>
+              <a class="resource-image" href="{{ file.file.url }}">
+                <img width="100%" src="{{ file.file.url }}" alt="Resource Image"/>
               </a>
             {% elif file.file.url.lower|slice:"-4:" in video_types %}
               <video width="100%" controls>
@@ -35,6 +35,7 @@
             {% elif file.file.url.lower|slice:"-4:" in document_types %}
               <!-- <embed src="{{ file.file.url }}" width="800px" height="2100px" /> -->
             {% endif %}
+            <a class="btn btn-outline-danger float-end" href="{% url 'file-delete' file.id %}?next={% url 'resource-detail' resource.id %}">Delete</a>
           {% endfor %}
         </div>
     
@@ -44,9 +45,11 @@
           <br>
           {{ resource.course.title }}
         </p>
+        <a class="btn btn-secondary ms-2 float-end" href="{% url 'resource-update' resource.id %}?next={% url 'resource-detail' resource.id %}">Edit</a>
+        <a class="btn btn-outline-danger float-end" href="{% url 'resource-delete' resource.id %}">Delete</a>
+        <div class="clearfix"></div>
       </div>
       
-      <a class="btn btn-primary ms-1 mt-3" href="{% url 'resource-add-file' resource.id%}">Add File</a>
     
     </div>
   {% else %}

@@ -1,0 +1,23 @@
+{% extends "production_house/delete_form_base.html" %}
+
+{% block message %}
+  <legend class="border-bottom mb-4 mt-2">Delete Resource</legend>
+  <h4>Are you sure you want to delete this file?</h4>
+  {{ file.file.url }}
+  
+  {% if file.file.url.lower|slice:"-4:" in image_types %}
+    <a class="resource-image" href="{{ file.file.url }}">
+      <img width="100%" src="{{ file.file.url }}" alt="Resource Image"/>
+    </a>
+  {% elif file.file.url.lower|slice:"-4:" in video_types %}
+    <video width="100%" controls>
+      <source src="{{ file.file.url }}">
+    </video>
+  {% elif file.file.url.lower|slice:"-4:" in audio_types %}
+    <audio width="100%" controls>
+      <source src="{{ file.file.url }}">
+    </audio>
+  {% elif file.file.url.lower|slice:"-4:" in document_types %}
+    <!-- <embed src="{{ file.file.url }}" width="800px" height="2100px" /> -->
+  {% endif %}
+{% endblock message %}

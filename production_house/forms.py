@@ -12,11 +12,11 @@ class ResourceCreateForm(forms.ModelForm):
         model = Resource
         fields = ['course', 'session', 'batches', 'title', 'content', 'file']
 
-
-class UploadedFileForm(forms.ModelForm):
-    class Meta:
-        model = File
-        fields = ['file']
-
-
-UploadedFileFormSet = formset_factory(UploadedFileForm, extra=1)
+class ResourceUpdateForm(forms.ModelForm):
+  file = forms.FileField(
+          required=False,
+          widget=forms.ClearableFileInput(attrs={'name': 'file', 'multiple': True})
+     )
+  class Meta:
+        model = Resource
+        fields = ['course', 'session', 'batches', 'title', 'content', 'file']

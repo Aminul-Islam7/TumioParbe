@@ -27,5 +27,10 @@ urlpatterns = [
     path('resources/', views.ResourceList.as_view(), name='resources'),
     path('resource/<int:pk>/', views.ResourceDetail.as_view(), name='resource-detail'),
     path('post-resource/', views.ResourceCreate.as_view(), name='resource-create'),
-    path('resource/<int:resource_id>/add-file/', views.FileCreate.as_view(), name='resource-add-file'),
+    path('edit-resource/<int:pk>/',
+         views.ResourceUpdate.as_view(), name='resource-update'),
+    path('delete-resource/<int:pk>/',
+         views.ResourceDelete.as_view(), name='resource-delete'),
+    path('delete-file/<int:pk>/',
+         views.FileDelete.as_view(), name='file-delete'),
 ]
