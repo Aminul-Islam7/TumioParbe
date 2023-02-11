@@ -46,7 +46,7 @@ class Batch(models.Model):
 
 
 class Resource(models.Model):
-    title = models.CharField(max_length=255, null=True, blank=True, default='Untitled')
+    title = models.CharField(max_length=255)
     content = HTMLField(null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     posted_on = models.DateTimeField(default=timezone.now)
@@ -66,7 +66,7 @@ class Resource(models.Model):
                               auto_choose=True,
                               related_name='resources')
     
-    file = models.FileField(upload_to='uploads', null=True, blank=True)
+    file = models.FileField(upload_to='files', null=True, blank=True)
 
 
 
@@ -75,7 +75,7 @@ class Resource(models.Model):
 
 
 class File(models.Model):
-    file = models.FileField(null=True, blank=True, upload_to='uploads')
+    file = models.FileField(null=True, blank=True, upload_to='files')
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE,
                                  related_name='files')
 
