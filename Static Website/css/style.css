@@ -622,6 +622,9 @@ label:focus,
 #navbar .navbar .nav-item .nav-link:hover, #navbar .navbar .nav-item .nav-link:active, #navbar .navbar .nav-item .nav-link:focus, #navbar .navbar .nav-item .nav-link.active {
   color: #de0000;
 }
+#navbar .navbar .nav-item .nav-link.active {
+  font-weight: 600;
+}
 #navbar .navbar .nav-item #dark-mode-toggle {
   display: flex;
   align-items: center;
@@ -688,6 +691,9 @@ header #banner .overlay .intro .action-text {
 header #banner .overlay .intro .join-button {
   box-shadow: 2px 3px 10px #fff2f4;
 }
+header #banner .overlay .intro .join-button:hover {
+  box-shadow: 1px 2px 10px #ff9999;
+}
 header #banner .overlay .intro .socials {
   display: flex;
   align-items: center;
@@ -703,7 +709,7 @@ header #banner .overlay .intro .socials a {
   width: 40px;
   height: 40px;
   margin: 0 4px;
-  background-color: #de0000;
+  background-color: #660505;
   border-radius: 50%;
   transition: 0.2s;
   color: #fff2f4;
@@ -711,8 +717,8 @@ header #banner .overlay .intro .socials a {
   transition: 0.2s;
 }
 header #banner .overlay .intro .socials a:hover {
-  background-color: #fff2f4;
-  color: #de0000;
+  background-color: #de0000;
+  color: #fff2f4;
 }
 header #banner .overlay .wave {
   position: absolute;
@@ -980,7 +986,8 @@ header #banner img {
   background-color: rgba(255, 255, 255, 0.7);
   padding: 30px;
   border-radius: 10px;
-  border-top: 4px solid #de0000;
+  transition: 0.2s;
+  border-top: 4px solid #660505;
   box-shadow: 0 5px 15px rgba(0, 0, 15, 0.2);
   font-family: "Nunito", sans-serif;
   font-size: 16px;
@@ -990,7 +997,7 @@ header #banner img {
 #contact .items .item .icon-holder {
   width: 70px;
   height: 70px;
-  background: #de0000;
+  background: #660505;
   transition: 0.2s;
   border-radius: 50%;
   display: flex;
@@ -1028,8 +1035,11 @@ header #banner img {
 #contact .items .item a:hover, #contact .items .item a:visited {
   color: #de0000;
 }
+#contact .items .item:hover {
+  border-color: #de0000;
+}
 #contact .items .item:hover .icon-holder {
-  background: #660505;
+  background: #de0000;
 }
 #contact .socials {
   display: flex;
@@ -1046,7 +1056,7 @@ header #banner img {
   width: 40px;
   height: 40px;
   margin: 0 5px;
-  background-color: #de0000;
+  background-color: #660505;
   border-radius: 50%;
   transition: 0.2s;
   color: #fff2f4;
@@ -1054,7 +1064,7 @@ header #banner img {
   transition: 0.2s;
 }
 #contact .socials a:hover {
-  background-color: #660505;
+  background-color: #de0000;
   color: #fff2f4;
 }
 

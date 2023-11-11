@@ -660,7 +660,7 @@ body.dark-mode .section-title h2::after {
 }
 body.dark-mode #navbar .navbar {
   background-color: rgba(15, 0, 0, 0.85);
-  box-shadow: 1px 5px 15px 0px rgba(255, 242, 242, 0.1);
+  box-shadow: 0px 3px 1px 0px rgba(255, 242, 242, 0.1);
 }
 body.dark-mode #navbar .navbar .nav-link {
   color: #fff2f4;
@@ -679,24 +679,32 @@ body.dark-mode #banner .overlay .intro .action-text {
   color: #fff2f4;
   filter: drop-shadow(2px 2px 7px #0f0000);
 }
+body.dark-mode #banner .overlay .intro .socials a {
+  background-color: rgba(255, 242, 242, 0.2);
+  color: #fff2f4;
+}
+body.dark-mode #banner .overlay .intro .socials a:hover {
+  background-color: #fff2f4;
+  color: #660505;
+}
 body.dark-mode #courses .row .course {
   background-color: rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0px 1px 3px rgba(255, 242, 242, 0.2);
+  box-shadow: 0 5px 15px rgba(255, 153, 153, 0.2);
 }
 body.dark-mode #courses .row .course .title {
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid #444;
 }
 body.dark-mode #courses .row .course .title h3 {
   color: #fff2f4;
 }
 body.dark-mode #courses .row .course .title p {
-  color: #fff2f4;
+  color: #999;
 }
 body.dark-mode #courses .row .course .details .price {
   color: #fff2f4;
 }
 body.dark-mode #courses .row .course .details .price .price-extra {
-  color: #aaa;
+  color: #999;
 }
 body.dark-mode #courses .row .course .details a {
   color: #ff9999;
@@ -717,7 +725,7 @@ body.dark-mode #awards .section-title p a:hover {
   color: #de0000;
 }
 body.dark-mode #awards .award-slider .slick-dots li {
-  background-color: #fff2f4;
+  background-color: #ff9999;
 }
 body.dark-mode #awards .award-slider .slick-dots li:hover {
   background-color: #de0000;
@@ -745,4 +753,49 @@ body.dark-mode #about .about-text {
 }
 body.dark-mode #about .vision i {
   color: #ff9999;
+}
+body.dark-mode #contact .item {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-top: 4px solid #ff9999;
+  box-shadow: 0 5px 15px rgba(255, 153, 153, 0.2);
+  color: #fff2f4;
+}
+body.dark-mode #contact .item .icon-holder {
+  background: #ff9999;
+}
+body.dark-mode #contact .item .icon-holder i {
+  font-size: 28px;
+  color: #0f0000;
+}
+body.dark-mode #contact .item .title {
+  color: #fff2f4;
+}
+body.dark-mode #contact .item .details {
+  color: #999;
+}
+body.dark-mode #contact .item .details:hover {
+  color: #fff2f4;
+}
+body.dark-mode #contact .item a {
+  color: #999;
+}
+body.dark-mode #contact .item a:hover, body.dark-mode #contact .item a:visited {
+  color: #ff9999;
+}
+body.dark-mode #contact .item:hover {
+  border-color: #de0000;
+}
+body.dark-mode #contact .item:hover .icon-holder {
+  background: #de0000;
+}
+body.dark-mode #contact .item:hover .icon-holder i {
+  color: #fff2f4;
+}
+body.dark-mode #contact .socials a {
+  background-color: rgba(255, 242, 242, 0.2);
+  color: #fff2f4;
+}
+body.dark-mode #contact .socials a:hover {
+  background-color: #fff2f4;
+  color: #660505;
 }/*# sourceMappingURL=responsive.css.map */

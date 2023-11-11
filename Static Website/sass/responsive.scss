@@ -169,7 +169,7 @@ body.dark-mode {
 	#navbar {
 		.navbar {
 			background-color: rgba(15, 0, 0, 0.85);
-			box-shadow: 1px 5px 15px 0px rgba(255, 242, 242, 0.1);
+			box-shadow: 0px 3px 1px 0px rgba(255, 242, 242, 0.1);
 
 			.nav-link {
 				color: $white;
@@ -180,14 +180,6 @@ body.dark-mode {
 					color: $lightred;
 				}
 			}
-			// #dark-mode-toggle {
-			// 	background-color: $darkred;
-			// 	color: $white;
-
-			// 	&:hover {
-			// 		background-color: $red;
-			// 	}
-			// }
 		}
 	}
 
@@ -203,6 +195,17 @@ body.dark-mode {
 				color: $white;
 				filter: drop-shadow(2px 2px 7px $black);
 			}
+			.socials {
+				a {
+					background-color: $white-overlay;
+					color: $white;
+
+					&:hover {
+						background-color: $white;
+						color: $darkred;
+					}
+				}
+			}
 		}
 	}
 
@@ -210,14 +213,14 @@ body.dark-mode {
 		.row {
 			.course {
 				background-color: rgba(0, 0, 0, 0.7);
-				box-shadow: 0 0px 1px 3px rgba(255, 242, 242, 0.2);
+				box-shadow: 0 5px 15px rgb(255 153 153 / 20%);
 				.title {
-					border-bottom: 2px solid #333;
+					border-bottom: 2px solid #444;
 					h3 {
 						color: $white;
 					}
 					p {
-						color: $white;
+						color: #999;
 					}
 				}
 
@@ -226,7 +229,7 @@ body.dark-mode {
 						color: $white;
 
 						.price-extra {
-							color: #aaa;
+							color: #999;
 						}
 					}
 
@@ -262,7 +265,7 @@ body.dark-mode {
 		.award-slider {
 			.slick-dots {
 				li {
-					background-color: $white;
+					background-color: $lightred;
 					&:hover {
 						background-color: $red;
 					}
@@ -300,6 +303,65 @@ body.dark-mode {
 		}
 		.vision i {
 			color: $lightred;
+		}
+	}
+	#contact {
+		.item {
+			background-color: rgba(0, 0, 0, 0.7);
+			border-top: 4px solid $lightred;
+			box-shadow: 0 5px 15px rgb(255 153 153 / 20%);
+			color: $white;
+
+			.icon-holder {
+				background: $lightred;
+
+				i {
+					font-size: 28px;
+					color: $black;
+				}
+			}
+
+			.title {
+				color: $white;
+			}
+
+			.details {
+				color: #999;
+
+				&:hover {
+					color: $white;
+				}
+			}
+
+			a {
+				color: #999;
+
+				&:hover,
+				&:visited {
+					color: $lightred;
+				}
+			}
+
+			&:hover {
+				border-color: $red;
+				.icon-holder {
+					background: $red;
+					i {
+						color: $white;
+					}
+				}
+			}
+		}
+		.socials {
+			a {
+				background-color: $white-overlay;
+				color: $white;
+
+				&:hover {
+					background-color: $white;
+					color: $darkred;
+				}
+			}
 		}
 	}
 }
