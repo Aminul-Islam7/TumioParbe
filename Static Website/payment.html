@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuition Fee Payment - তুমিও পারবে</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #61000d;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #0f0000;
+        }
+
+        .container {
+            background-color: #fef1f4;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+            background: url('your-logo.png') center/cover no-repeat;
+        }
+
+        .heading {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0f0000;
+        }
+
+        .radio-container {
+            text-align: left;
+            margin: 5px 0;
+        }
+
+        .radio-label {
+            text-align: left;
+            margin-top: 15px;
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #fef1f4;
+        }
+
+        button {
+            background-color: #de0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .warning-text {
+            color: red;
+            font-size: 14px;
+            margin: 10px 0;
+            display: none;
+        }
+
+        .call-us-button {
+            text-decoration: none;
+            color: #fef1f4;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .call-us-button i {
+            font-size: 15px;
+            margin-right: 7px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="icon" href="media/icon.png">
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="media/logo.png" alt="Tumio Parbe" width="80px">
+        </div>
+        <div class="heading">Tuition Fee Payment</div>
+        <span class="radio-label">Select Course:</span>
+        <div class="radio-container">
+            <input type="radio" id="abrittiCourse" name="course" value="AbrittiCourse" required>
+            <label for="abrittiCourse">Abritti Course</label>
+        </div>
+        <div class="radio-container">
+            <input type="radio" id="drawingCourse" name="course" value="DrawingCourse" required>
+            <label for="drawingCourse">Drawing Course</label>
+        </div>
+        <div class="radio-container">
+            <span class="radio-label">Amount (BDT):</span>
+            <input type="number" id="amount" min="300" max="600" step="100" required>
+        </div>
+        <div class="warning-text" id="warningText">Invalid Amount</div>
+        <button id="payNow">Pay Now</button>
+    </div>
+    <a href="tel:+8801841257770" class="call-us-button">
+        <i class="fa-solid fa-phone"></i>
+        Call us
+    </a>
+    <script>
+        const amountInput = document.getElementById("amount");
+        const payNowButton = document.getElementById("payNow");
+        const warningText = document.getElementById("warningText");
+
+        amountInput.addEventListener("input", () => {
+            const courseRadioButtons = document.getElementsByName("course");
+            let selectedCourse = "";
+            for (const radioButton of courseRadioButtons) {
+                if (radioButton.checked) {
+                    selectedCourse = radioButton.value;
+                    break;
+                }
+            }
+            const amount = amountInput.value;
+
+            if ((selectedCourse === "AbrittiCourse" && (amount === "300" || amount === "500" || amount === "600")) ||
+                (selectedCourse === "DrawingCourse" && (amount === "500" || amount === "600"))) {
+                warningText.style.display = "none";
+                payNowButton.disabled = false;
+            } else {
+                warningText.style.display = "block";
+                payNowButton.disabled = true;
+            }
+        });
+
+        // Handle "Pay Now" button click event
+        payNowButton.addEventListener("click", () => {
+            const courseRadioButtons = document.getElementsByName("course");
+            let selectedCourse = "";
+            for (const radioButton of courseRadioButtons) {
+                if (radioButton.checked) {
+                    selectedCourse = radioButton.value;
+                    break;
+                }
+            }
+            const amount = amountInput.value;
+
+            let url = "";
+            if (selectedCourse && amount) {
+                if (selectedCourse === "AbrittiCourse") {
+                    url = "abritti-payment";
+                } else if (selectedCourse === "DrawingCourse") {
+                    url = "drawing-payment";
+                }
+                window.open(`${url}/TuitionFee/bdt${amount}`, '_blank');
+            }
+        });
+    </script>
+</body>
+
+</html>

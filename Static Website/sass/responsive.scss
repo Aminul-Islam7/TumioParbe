@@ -4,135 +4,137 @@
 992-1199 => large -> col-lg
 1200-1399 => Extra large col-xl 
 1400 => Extra Extra large -> col-xxl */
+@import "resets";
+@import "presets";
 
 @media (max-width: 575px) {
-  header #banner .overlay .intro {
-    top: 6%;
-  }
-  header #banner .overlay .intro .logo img {
-    width: 170px;
-  }
-  header #banner .overlay .intro .tagline {
-    font-size: 28px;
-    line-height: 38px;
-  }
-  header #banner .overlay .intro .action-text {
-    font-size: 18px;
-  }
+	header #banner .overlay .intro {
+		top: 6%;
+	}
+	header #banner .overlay .intro .logo img {
+		width: 170px;
+	}
+	header #banner .overlay .intro .tagline {
+		font-size: 28px;
+		line-height: 38px;
+	}
+	header #banner .overlay .intro .action-text {
+		font-size: 18px;
+	}
 
-  header #banner .overlay .intro .socials {
-    display: none;
-  }
+	header #banner .overlay .intro .socials {
+		display: none;
+	}
 
-  .section-title h2 {
-    font-size: 36px;
-  }
+	.section-title h2 {
+		font-size: 36px;
+	}
 
-  #courses {
-    padding: 110px 0 10px;
-  }
+	#courses {
+		padding: 110px 0 10px;
+	}
 
-  #courses .row {
-    padding: 0;
-  }
+	#courses .row {
+		padding: 0;
+	}
 
-  #courses .row .course .title p {
-    font-size: 16px;
-  }
+	#courses .row .course .title p {
+		font-size: 16px;
+	}
 
-  #courses .row .course .title h3 {
-    font-size: 24px;
-  }
+	#courses .row .course .title h3 {
+		font-size: 24px;
+	}
 
-  #courses .row .course .details .price {
-    font-size: 18px;
-  }
+	#courses .row .course .details .price {
+		font-size: 18px;
+	}
 
-  #courses .row .course .details .price .price-extra {
-    font-size: 18px;
-  }
+	#courses .row .course .details .price .price-extra {
+		font-size: 18px;
+	}
 
-  #courses .row .course .details a {
-    font-size: 18px;
-  }
+	#courses .row .course .details a {
+		font-size: 18px;
+	}
 
-  #awards {
-    padding: 100px 0 10px;
-  }
+	#awards {
+		padding: 100px 0 10px;
+	}
 
-  #awards .award-slider img {
-    height: auto;
-    width: 100%;
-  }
+	#awards .award-slider img {
+		height: auto;
+		width: 100%;
+	}
 
-  #about {
-    padding: 100px 0 10px;
-  }
+	#about {
+		padding: 100px 0 10px;
+	}
 
-  #about .row {
-    flex-flow: column-reverse;
-  }
+	#about .row {
+		flex-flow: column-reverse;
+	}
 
-  #about .about-text {
-    margin: 0;
-    margin-bottom: 30px;
-    font-size: 18px;
-    text-align: center;
-  }
+	#about .about-text {
+		margin: 0;
+		margin-bottom: 30px;
+		font-size: 18px;
+		text-align: center;
+	}
 
-  #about .about-text .vision {
-    margin-top: 15px;
-  }
+	#about .about-text .vision {
+		margin-top: 15px;
+	}
 
-  #about .about-text .vision strong i {
-    top: -30px;
-    left: 22px;
-    font-size: 70px;
-  }
+	#about .about-text .vision strong i {
+		top: -30px;
+		left: 22px;
+		font-size: 70px;
+	}
 
-  #about .ceo figcaption h3 {
-    font-size: 28px;
-  }
+	#about .ceo figcaption h3 {
+		font-size: 28px;
+	}
 
-  #about .ceo figcaption p {
-    font-size: 18px;
-  }
+	#about .ceo figcaption p {
+		font-size: 18px;
+	}
 
-  #gallery .fb {
-    display: none;
-  }
+	#gallery .fb {
+		// display: none;
+	}
 
-  #contact {
-    padding: 100px 0 150px;
-  }
+	#contact {
+		padding: 100px 0 150px;
+	}
 
-  #contact .items .item .info {
-    flex-direction: column;
-    align-items: center;
-  }
+	#contact .items .item .info {
+		flex-direction: column;
+		align-items: center;
+	}
 
-  #contact .items .item .info .details {
-    margin: 0;
-    margin-top: 10px;
-    text-align: center;
-  }
+	#contact .items .item .info .details {
+		margin: 0;
+		margin-top: 10px;
+		text-align: center;
+	}
 
-  #contact .items .item .socials {
-    margin-top: 15px;
-    flex-wrap: wrap;
-  }
+	#contact .items .item .socials {
+		margin-top: 15px;
+		flex-wrap: wrap;
+	}
 
-  #contact .items .item .socials .breaker {
-    width: 100%;
-  }
+	#contact .items .item .socials .breaker {
+		width: 100%;
+	}
 
-  #contact .items .item .socials a {
-    margin: 10px 3px 0;
-  }
+	#contact .items .item .socials a {
+		margin: 10px 3px 0;
+	}
 
-  #contact .items .item {
-    margin-bottom: 25px;
-  }
+	#contact .items .item {
+		margin-bottom: 25px;
+	}
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -148,4 +150,156 @@
 }
 
 @media (min-width: 1400px) {
+}
+
+body.dark-mode {
+	background-color: rgba(15, 0, 0, 0.97);
+
+	#particles {
+		opacity: 0.5;
+	}
+
+	.section-title h2 {
+		color: $white;
+		&::after {
+			background-color: $white;
+		}
+	}
+
+	#navbar {
+		.navbar {
+			background-color: rgba(15, 0, 0, 0.85);
+			box-shadow: 1px 5px 15px 0px rgba(255, 242, 242, 0.1);
+
+			.nav-link {
+				color: $white;
+				&:hover,
+				&:active,
+				&:focus,
+				&.active {
+					color: $lightred;
+				}
+			}
+			// #dark-mode-toggle {
+			// 	background-color: $darkred;
+			// 	color: $white;
+
+			// 	&:hover {
+			// 		background-color: $red;
+			// 	}
+			// }
+		}
+	}
+
+	#banner {
+		background-image: url("../media/banner-dark.jpg");
+
+		.overlay .intro {
+			.tagline {
+				color: $white;
+				filter: drop-shadow(2px 2px 10px $black);
+			}
+			.action-text {
+				color: $white;
+				filter: drop-shadow(2px 2px 7px $black);
+			}
+		}
+	}
+
+	#courses {
+		.row {
+			.course {
+				background-color: rgba(0, 0, 0, 0.7);
+				box-shadow: 0 0px 1px 3px rgba(255, 242, 242, 0.2);
+				.title {
+					border-bottom: 2px solid #333;
+					h3 {
+						color: $white;
+					}
+					p {
+						color: $white;
+					}
+				}
+
+				.details {
+					.price {
+						color: $white;
+
+						.price-extra {
+							color: #aaa;
+						}
+					}
+
+					a {
+						color: $lightred;
+
+						&:hover {
+							color: $red;
+						}
+					}
+				}
+				&:hover {
+					.details a {
+						color: $red;
+					}
+				}
+			}
+		}
+	}
+
+	#awards {
+		.section-title {
+			p {
+				color: $white;
+				a {
+					color: $lightred;
+					&:hover {
+						color: $red;
+					}
+				}
+			}
+		}
+		.award-slider {
+			.slick-dots {
+				li {
+					background-color: $white;
+					&:hover {
+						background-color: $red;
+					}
+				}
+
+				.slick-active {
+					background-color: $red;
+				}
+			}
+		}
+
+		.light-btn {
+			margin-top: 20px;
+		}
+	}
+
+	#about {
+		figcaption {
+			h3,
+			p {
+				color: $white;
+			}
+			.socials a {
+				background-color: $white-overlay;
+				color: $white;
+
+				&:hover {
+					background-color: $white;
+					color: $darkred;
+				}
+			}
+		}
+		.about-text {
+			color: $white;
+		}
+		.vision i {
+			color: $lightred;
+		}
+	}
 }

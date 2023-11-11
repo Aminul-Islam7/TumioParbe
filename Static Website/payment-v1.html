@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - তুমিও পারবে</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #61000d;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #0f0000;
+        }
+
+        .container {
+            background-color: #fef1f4;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            max-width: 350px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+            background: url('your-logo.png') center/cover no-repeat;
+        }
+
+        .heading {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0f0000;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #fef1f4;
+        }
+
+        button {
+            background-color: #de0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .warning-text {
+            color: red;
+            font-size: 14px;
+            margin: 10px 0;
+            display: none;
+        }
+
+        .call-us-button {
+            text-decoration: none;
+            color: #fef1f4;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .call-us-button i {
+            font-size: 15px;
+            margin-right: 7px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="icon" href="media/icon.png">
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="media/logo.png" alt="Tumio Parbe" width="80px">
+        </div>
+        <div class="heading">Fee Payment</div>
+        <select id="course">
+            <option value="AbrittiCourse">Abritti Course</option>
+            <option value="DrawingCourse">Drawing Course</option>
+        </select>
+        <select id="paymentType">
+            <option value="Admission+TuitionFee">Admission + Tuition Fee</option>
+            <option value="TuitionFee">Tuition Fee</option>
+        </select>
+        <select id="amount">
+            <!-- Options will be added using JavaScript -->
+        </select>
+        <div class="warning-text" id="warningText">Call us to collect the Discount Code.</div>
+        <button id="payNow">Pay Now</button>
+    </div>
+    <a href="tel:+8801841257770" class="call-us-button">
+        <i class="fa-solid fa-phone"></i>
+        Call us
+    </a>
+    <script>
+        const amountSelect = document.getElementById("amount");
+        const paymentTypeSelect = document.getElementById("paymentType");
+        const payNowButton = document.getElementById("payNow");
+        const warningText = document.getElementById("warningText");
+
+        // Define the options for the amount dropdown based on payment type and course
+        const amountOptions = {
+            "Admission+TuitionFee": {
+                "AbrittiCourse": [
+                    { text: "1000 BDT", value: "1000" },
+                    { text: "600 BDT (Special Discount)", value: "600" },
+                    { text: "500 BDT (Siblings' Discount)", value: "500" },
+                ],
+                "DrawingCourse": [
+                    { text: "1000 BDT", value: "1000" },
+                    { text: "600 BDT (Special Discount)", value: "600" },
+                    { text: "500 BDT (Siblings' Discount)", value: "500" },
+                ],
+            },
+            "TuitionFee": {
+                "AbrittiCourse": [
+                    { text: "600 BDT", value: "600" },
+                    { text: "500 BDT (Siblings' Discount)", value: "500" },
+                    { text: "300 BDT (1st 100 Discount)", value: "300" }, // Added for AbrittiCourse
+                ],
+                "DrawingCourse": [
+                    { text: "600 BDT", value: "600" },
+                    { text: "500 BDT (Siblings' Discount)", value: "500" },
+                ],
+            },
+        };
+
+        // Function to show/hide the warning text based on the selected payment type and amount
+        function updateWarningText() {
+            const paymentType = paymentTypeSelect.value;
+            const course = document.getElementById("course").value;
+            const amount = amountSelect.value;
+
+            if (paymentType === "Admission+TuitionFee" && (amount === "600" || amount === "500")) {
+                warningText.style.display = "block";
+            } else {
+                warningText.style.display = "none";
+            }
+        }
+
+        // Populate the amount dropdown based on payment type and course
+        paymentTypeSelect.addEventListener("change", () => {
+            const paymentType = paymentTypeSelect.value;
+            const course = document.getElementById("course").value;
+            amountSelect.innerHTML = "";
+            amountOptions[paymentType][course].forEach((option) => {
+                const opt = document.createElement("option");
+                opt.value = option.value;
+                opt.text = option.text;
+                amountSelect.appendChild(opt);
+            });
+
+            // Update the warning text when the payment type changes
+            updateWarningText();
+        });
+
+        // Handle changes in the amount dropdown
+        amountSelect.addEventListener("change", () => {
+            // Update the warning text when the amount changes
+            updateWarningText();
+        });
+
+        // Define URLs for different combinations and redirect when "Pay Now" is clicked
+        payNowButton.addEventListener("click", () => {
+            const course = document.getElementById("course").value;
+            const paymentType = paymentTypeSelect.value;
+            const amount = amountSelect.value;
+
+            let url = "";
+            if (course && paymentType && amount) {
+                if (course === "AbrittiCourse") {
+                    url = "abritti-payment";
+                } else if (course === "DrawingCourse") {
+                    url = "drawing-payment";
+                }
+                window.open(`${url}/${paymentType}/bdt${amount}`, '_blank');
+            }
+        });
+
+        // Initialize the amount dropdown and warning text
+        paymentTypeSelect.dispatchEvent(new Event("change"));
+    </script>
+
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+</body>
+
+</html>

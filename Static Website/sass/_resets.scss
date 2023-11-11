@@ -1,125 +1,125 @@
 @import "presets";
 
 * {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	box-sizing: border-box;
 }
 
 *::selection {
-  background-color: $red;
-  color: $white;
+	background-color: $red;
+	color: $white;
 }
 
 *::-webkit-scrollbar {
-  width: 7px;
+	width: 7px;
 }
 
 *::-webkit-scrollbar-track {
-  background: $black;
+	background: $black;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: $white;
-  border-radius: 40%;
+	background: $lightred;
+	border-radius: 10px;
 }
 
 *[lang*="bn"] {
-  font-family: "Noto Sans Bengali", sans-serif !important;
+	font-family: "Noto Sans Bengali", sans-serif !important;
 }
 
 html {
-  height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+	height: 100vh;
+	width: 100vw;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
 }
-
 body {
-  height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
-  background-color: $darkred;
+	height: 100vh;
+	width: 100vw;
+	overflow-x: hidden;
+	background-color: $white;
+	scroll-behavior: smooth;
 }
 
 a {
-  text-decoration: none;
-  display: inline-block;
-  color: $red;
-  transition: 0.2s;
+	text-decoration: none;
+	display: inline-block;
+	color: $red;
+	transition: 0.2s;
 
-  &:hover,
-  &:visited,
-  &:active {
-    color: $darkred;
-  }
+	&:hover,
+	&:visited,
+	&:active {
+		color: $darkred;
+	}
 }
 
 p {
-  margin: 0;
+	margin: 0;
 }
 
 ol,
 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 img,
 svg {
-  vertical-align: middle;
+	vertical-align: middle;
 }
 
 figure {
-  margin: 0 !important;
+	margin: 0 !important;
 }
 
 ::placeholder {
-  color: $grey;
-  opacity: 0.5;
+	color: $grey;
+	opacity: 0.5;
 }
 
 .accordion-item:first-of-type,
 .accordion-item:first-of-type .accordion-button {
-  border-top-left-radius: 10px !important;
-  border-top-right-radius: 10px !important;
+	border-top-left-radius: 10px !important;
+	border-top-right-radius: 10px !important;
 }
 
 .accordion-item:last-of-type,
 .accordion-item:last-of-type .accordion-button {
-  border-bottom-left-radius: 10px !important;
-  border-bottom-right-radius: 10px !important;
+	border-bottom-left-radius: 10px !important;
+	border-bottom-right-radius: 10px !important;
 }
 
 .accordion-item:last-of-type .accordion-button:not(.collapsed) {
-  border-bottom-left-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
 }
 
 .accordion-button {
-  background-color: $white;
-  color: $black;
-  @include font(Noto Sans Bengali, 18px, 500, $black);
+	background-color: $white;
+	color: $black;
+	@include font(Noto Sans Bengali, 18px, 500, $black);
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: $lightred;
-  color: $black;
-  @include font(Noto Sans Bengali, 18px, 500, $black);
+	background-color: $lightred;
+	color: $black;
+	@include font(Noto Sans Bengali, 18px, 500, $black);
 }
 
 .accordion-body {
-  background-color: $white;
-  border-radius: 10px;
-  @include font(Noto Sans Bengali, 16px, 400, $black);
-  opacity: 0.8;
+	background-color: $white;
+	border-radius: 10px;
+	@include font(Noto Sans Bengali, 16px, 400, $black);
+	opacity: 0.8;
 }
 
 .accordion-button:not(.collapsed)::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23660505'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-  transform: rotate(-180deg);
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23660505'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+	transform: rotate(-180deg);
 }
 
 $accordion-border-radius: 10px;
@@ -136,7 +136,7 @@ button:hover,
 label:focus,
 .btn:active,
 .btn.active {
-  outline: 0px !important;
-  -webkit-appearance: none;
-  box-shadow: none !important;
+	outline: 0px !important;
+	-webkit-appearance: none;
+	box-shadow: none !important;
 }
