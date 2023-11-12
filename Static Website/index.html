@@ -29,65 +29,10 @@
 </head>
 
 <body>
-	<!-- <div class="blob1"></div>
-	<div class="blob2"></div>
-	<div class="blob3"></div> -->
 	<div id="particles"></div>
 
-	<span id="home"></span>
+	<div id="beginning"></div>
 
-	<!-- <div id="logo-bar">
-      <div class="border"></div>
-      <div class="logo-holder">
-        <div class="fix-left">
-          <img src="media/logo_holder_left_fix.svg">
-        </div>
-        <figure class="logo">
-          <img src="media/logo.png" alt="Tumio Parbe" width="100px">
-        </figure>
-        <div class="fix-right">
-          <img src="media/logo_holder_right_fix.svg">
-        </div>
-      </div>
-    </div> -->
-
-
-	<!-- Logo centered navbar -->
-	<!-- <section id="navbar">
-    <nav class="navbar fixed-top navbar-expand-md navbar-light">
-      <div class="container-fluid">
-        <a class="navbar-brand d-md-none" href="#">
-          <img src="media/logo.png" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-            <a class="navbar-brand d-none d-md-block" href="#">
-              <img src="media/logo.png" alt="">
-            </a>
-            <li class="nav-item">
-              <a class="nav-link" href="#courses">Courses</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#awards">Awarded Performers</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </section> -->
 
 	<section id="navbar">
 		<nav class="navbar fixed-top navbar-expand-md navbar-light">
@@ -110,13 +55,16 @@
 							<a class="nav-link" href="#awards">Awards</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#about">About</a>
-						</li>
-						<li class="nav-item">
 							<a class="nav-link" href="#gallery">Gallery</a>
 						</li>
 						<li class="nav-item">
+							<a class="nav-link" href="#about">About</a>
+						</li>
+						<li class="nav-item">
 							<a class="nav-link" href="#contact">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="terms_conditions.html">Terms</a>
 						</li>
 					</ul>
 					<ul class="navbar-nav ms-auto">
@@ -214,7 +162,7 @@
 								</figure>
 								<div class="title">
 									<p>Live Online Classes</p>
-									<h3 style="font-family: 'Noto Sans Bengali', sans-serif;">শুদ্ধ উচ্চারণ ও আবৃত্তি
+									<h3 class="bangla">শুদ্ধ উচ্চারণ ও আবৃত্তি
 										কোর্স
 									</h3>
 								</div>
@@ -358,6 +306,18 @@
 		</section>
 
 
+
+		<!-- -- ─── GALLERY SECTION STARTS ───────────────────────────────────────────── -->
+		<section id="gallery">
+			<div class="section-title" data-aos="fade">
+				<h2>Gallery</h2>
+			</div>
+			<div class="elfsight-app-90f5f671-d74e-4abb-958b-74bbb5682367"></div>
+			<div class="tagembed-socialwall" data-wall-id="124786"></div>
+		</section>
+
+
+
 		<!-- -- ─── ABOUT SECTION STARTS ───────────────────────────────────────────── -->
 
 		<section id="about">
@@ -373,7 +333,7 @@
 						</div>
 						<figcaption>
 							<h3>Shamima Akter</h3>
-							<p>Founder & CEO, Tumio Parbe</p>
+							<p class="text">Founder & CEO, Tumio Parbe</p>
 							<div class="socials">
 								<a href="tel:+8801612777712">
 									<i class="fa-solid fa-phone"></i>
@@ -390,7 +350,7 @@
 							</div>
 						</figcaption>
 					</figure>
-					<article class="about-text col-sm-6 col-12" data-aos="fade-left">
+					<article class="about-text col-sm-6 col-12 text" data-aos="fade-left">
 						We are a Talent Media Platform for K-12 children, parents and mentors. Children with interest in
 						all forms
 						of arts,
@@ -402,7 +362,7 @@
 						interest.
 						<br>
 						<br>
-						<p class="vision">
+						<p class="vision text">
 							<strong>
 								<i class="fa-duotone fa-quote-left"></i>
 								Our Vision
@@ -414,17 +374,6 @@
 					</article>
 				</div>
 			</div>
-		</section>
-
-
-
-		<!-- -- ─── GALLERY SECTION STARTS ───────────────────────────────────────────── -->
-		<section id="gallery">
-			<div class="section-title" data-aos="fade">
-				<h2>Gallery</h2>
-			</div>
-			<div class="elfsight-app-90f5f671-d74e-4abb-958b-74bbb5682367"></div>
-			<div class="tagembed-socialwall" data-wall-id="124786"></div>
 		</section>
 
 
@@ -714,6 +663,9 @@
 	<footer>
 		<section id="top">
 			<!-- <img class="wave" src="media/footer-wave.svg" alt="Wave Image"> -->
+			<a class="toTop" href="#beginning">
+				<i class="fa-solid fa-angle-up"></i>
+			</a>
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-4 col-sm-6">
@@ -725,7 +677,8 @@
 								<li><i class="fas fa-chevron-right"></i><a href="#awards">Awards</a></li>
 								<li><i class="fas fa-chevron-right"></i><a href="#gallery">Gallery</a></li>
 								<li><i class="fas fa-chevron-right"></i><a href="#about">About us</a></li>
-								<li><i class="fas fa-chevron-right"></i><a href="terms_conditions.html">Terms & Conditions</a></li>
+								<li><i class="fas fa-chevron-right"></i><a href="terms_conditions.html">Terms of Use
+										<span class="bangla">(ব্যবহারের শর্তাবলী)</span></a></li>
 							</ul>
 						</div>
 					</div>

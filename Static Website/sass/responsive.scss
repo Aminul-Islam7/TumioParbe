@@ -159,6 +159,11 @@ body.dark-mode {
 		opacity: 0.5;
 	}
 
+	.text {
+		color: $white !important;
+	}
+
+	.section-title h1,
 	.section-title h2 {
 		color: $white;
 		&::after {
@@ -169,7 +174,7 @@ body.dark-mode {
 	#navbar {
 		.navbar {
 			background-color: rgba(15, 0, 0, 0.85);
-			box-shadow: 0px 3px 1px 0px rgba(255, 242, 242, 0.1);
+			box-shadow: 0px 5px 15px 0px rgba(255, 153, 153, 0.1);
 
 			.nav-link {
 				color: $white;
@@ -215,7 +220,7 @@ body.dark-mode {
 				background-color: rgba(0, 0, 0, 0.7);
 				box-shadow: 0 5px 15px rgb(255 153 153 / 20%);
 				.title {
-					border-bottom: 2px solid #444;
+					border-bottom: 2px solid rgba(255, 242, 242, 0.2);
 					h3 {
 						color: $white;
 					}
@@ -317,7 +322,7 @@ body.dark-mode {
 
 				i {
 					font-size: 28px;
-					color: $black;
+					color: $darkred;
 				}
 			}
 
@@ -360,6 +365,100 @@ body.dark-mode {
 				&:hover {
 					background-color: $white;
 					color: $darkred;
+				}
+			}
+		}
+	}
+
+	footer {
+		#top {
+			background: $black;
+			box-shadow: 0px -5px 15px rgba(255, 153, 153, 0.1);
+
+			.tagline {
+				color: $white;
+				filter: drop-shadow(0px 0px 7px rgba(255, 153, 153, 0.7));
+			}
+
+			.details,
+			.details a {
+				color: $lightred;
+			}
+
+			h3 {
+				color: $white;
+			}
+
+			.links li {
+				i {
+					color: $lightred;
+				}
+
+				a {
+					color: $lightred;
+
+					&:hover {
+						color: $white;
+					}
+				}
+			}
+
+			.end .socials a {
+				background-color: $white-overlay;
+				color: $white;
+
+				&:hover {
+					background-color: $white;
+					color: $darkred;
+				}
+			}
+
+			a:hover {
+				color: $white;
+			}
+		}
+
+		#bottom {
+			background: $black;
+			color: $lightred;
+			border-top: 2px solid rgba(255, 242, 242, 0.1);
+
+			.copyright a {
+				color: $lightred;
+
+				&:hover {
+					color: $white;
+				}
+			}
+			.credits {
+				font-size: 13px;
+
+				i {
+					color: $lightred;
+				}
+
+				a {
+					color: $lightred;
+
+					&:hover {
+						color: $white;
+					}
+				}
+			}
+		}
+	}
+
+	#terms {
+		.title {
+			color: $white;
+		}
+
+		ol li {
+			color: $lightred;
+			a {
+				color: $lightred;
+				&:hover {
+					color: $white;
 				}
 			}
 		}

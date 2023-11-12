@@ -97,11 +97,21 @@ $black: #0f0000;
 	}
 }
 
+.bangla {
+	font-family: "Noto Sans Bengali", sans-serif;
+}
+
+.text {
+	color: $black !important;
+	opacity: 0.85;
+}
+
 .section-title {
 	margin-bottom: 50px;
 	text-align: center;
 	// text-transform: uppercase;
 
+	h1,
 	h2 {
 		@include font(Architects Daughter, 40px, 800, $darkred);
 		position: relative;

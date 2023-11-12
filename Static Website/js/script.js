@@ -42,6 +42,29 @@ $(document).ready(function () {
 	};
 });
 
+$('a[href*="#"]')
+	.not('[href="#"]')
+	.not('[href="#0"]')
+	.click(function (event) {
+		if (
+			location.pathname.replace(/^\//, "") ==
+				this.pathname.replace(/^\//, "") &&
+			location.hostname == this.hostname
+		) {
+			var target = $(this.hash);
+			target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
+			if (target.length) {
+				// event.preventDefault();
+				$("html, body").animate(
+					{
+						scrollTop: target.offset().top - 0,
+					},
+					0
+				);
+			}
+		}
+	});
+
 // $(document).ready(function () {
 //   $(".nav-item").click(function () {
 //     $(".nav-item").removeClass("active");
@@ -227,7 +250,7 @@ const particlesConfig = {
 				mode: "bubble",
 			},
 			onclick: {
-				enable: true,
+				enable: false,
 				mode: "remove",
 			},
 			resize: true,
@@ -302,9 +325,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		// Refresh AOS animations
 		AOS.refresh();
-
-		// Destroy and reinitialize particles
-		particlesJS("particles", particlesConfig);
 	}
 
 	// Event listener for the dark mode toggle button

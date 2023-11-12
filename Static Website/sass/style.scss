@@ -444,7 +444,7 @@ header {
 			}
 
 			.title {
-				border-bottom: 2px solid #ddd;
+				border-bottom: 2px solid rgba(0, 0, 15, 0.1);
 				text-align: center;
 				h3 {
 					@include font(Poppins, 26px, 500, $black);
@@ -660,7 +660,7 @@ header {
 
 // CONTACT SECTION STARTS
 #contact {
-	padding: 120px 0;
+	padding: 120px 0 150px;
 	// background-color: $lightred;
 
 	.items {
@@ -873,18 +873,55 @@ header {
 
 footer {
 	#top {
-		background: $white;
+		background: white;
 		padding: 50px 0 40px;
 		position: relative;
-		border-top: 2px solid #ddd;
+		box-shadow: 0px -5px 15px rgba(0, 0, 15, 0.1);
 
-		.wave {
+		.toTop {
+			@include flexCenter();
 			position: absolute;
-			width: 100%;
-			bottom: 100%;
-			left: 0;
-			z-index: -1;
+			top: 0;
+			left: 50%;
+			width: 70px;
+			height: 65px;
+			transform: translate(-50%, -75%);
+			border-radius: 50% 50% 10px 10px;
+			background-color: $lightred;
+			transition: 0.2s;
+			filter: drop-shadow(0px 0px 6px rgba(0, 0, 15, 0.2));
+
+			&:hover {
+				background: $red;
+				i {
+					padding-bottom: 15px;
+					color: $white;
+				}
+			}
+
+			i {
+				font-size: 30px;
+				color: $darkred;
+				transition: 0.2s;
+			}
+
+			// &::after {
+			// 	content: "";
+			// 	position: absolute;
+			// 	width: 100%;
+			// 	height: 100%;
+			// 	z-index: 1;
+			// 	color: #000;
+			// }
 		}
+
+		// .wave {
+		// 	position: absolute;
+		// 	width: 100%;
+		// 	bottom: 100%;
+		// 	left: 0;
+		// 	z-index: -1;
+		// }
 
 		.logo {
 			margin-bottom: 10px;
@@ -950,14 +987,14 @@ footer {
 				a {
 					@include flexCenter();
 
-					width: 40px;
-					height: 40px;
-					margin-left: 8px;
+					width: 35px;
+					height: 35px;
+					margin-left: 6px;
 					background-color: $darkred;
 					border-radius: 50%;
 					transition: 0.2s;
 					color: $white;
-					font-size: 20px;
+					font-size: 16px;
 					transition: 0.2s;
 
 					&:hover {
@@ -974,10 +1011,10 @@ footer {
 	}
 
 	#bottom {
-		background: $white;
+		background: white;
 		padding: 18px 0;
 		@include font(Poppins, 14px, 400, $darkred);
-		border-top: 2px solid #ddd;
+		border-top: 2px solid rgba(0, 0, 15, 0.1);
 		text-align: center;
 
 		.copyright {
@@ -1159,3 +1196,46 @@ footer {
 }
 
 // TERMS AND CONDITIONS SECTION STARTS
+
+#terms {
+	padding: 150px 10px 100px;
+
+	.updated-on {
+		@include font(Poppins, 14px, 500, rgba(0, 0, 15, 0.5));
+		text-align: right;
+	}
+
+	.title {
+		@include font(Noto Sans Bengali, 28px, 600, $black);
+		padding: 40px 0 20px;
+	}
+
+	ol {
+		list-style-type: bengali;
+		padding-left: 60px;
+		li {
+			padding-left: 5px;
+			color: $darkred;
+			transition: 0.2s;
+			a {
+				color: $darkred;
+				&:hover {
+					color: $red;
+					padding-left: 10px;
+				}
+			}
+		}
+	}
+
+	main {
+		font-size: 17px;
+		letter-spacing: 0.25px;
+		line-height: 25px;
+
+		p {
+			margin: 12px 0;
+			padding-left: 34px;
+			text-align: justify;
+		}
+	}
+}
