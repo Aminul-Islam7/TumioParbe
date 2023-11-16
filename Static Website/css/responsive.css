@@ -132,6 +132,10 @@
   bottom: 0px !important;
 }
 
+.overflowy-scroll {
+  overflow-y: scroll !important;
+}
+
 @keyframes move-forever1 {
   0% {
     transform: translate(85px, 0%);
@@ -218,6 +222,7 @@
   padding: 0;
   outline: none;
   box-sizing: border-box;
+  transition: 0.2s;
 }
 
 *::selection {
@@ -487,6 +492,10 @@ label:focus,
   bottom: 0px !important;
 }
 
+.overflowy-scroll {
+  overflow-y: scroll !important;
+}
+
 @keyframes move-forever1 {
   0% {
     transform: translate(85px, 0%);
@@ -668,6 +677,47 @@ label:focus,
     margin-bottom: 25px;
   }
 }
+@media (max-width: 992px) {
+  #navbar {
+    height: 82px;
+  }
+  #navbar .container {
+    justify-content: space-between;
+  }
+  #navbar .container .darkmode-btn1 {
+    display: block;
+  }
+  #navbar .container .darkmode-btn2 {
+    display: none !important;
+  }
+  #navbar .container .logo img {
+    width: 62px;
+  }
+  #navbar .container .nav-list {
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    opacity: 0;
+    transition: 0.7s;
+  }
+  #navbar .container .nav-list.show {
+    opacity: 1;
+  }
+  #navbar .container .nav-list .nav-item.action {
+    display: block !important;
+  }
+  #navbar .container .nav-list .nav-link {
+    padding: 7px 500px;
+  }
+  #navbar .container .nav-buttons .action-btn {
+    display: none !important;
+  }
+  #navbar .container #hamburger {
+    display: block;
+  }
+}
 body.dark-mode {
   background-color: rgba(15, 0, 0, 0.97);
 }
@@ -685,15 +735,18 @@ body.dark-mode .section-title h1::after,
 body.dark-mode .section-title h2::after {
   background-color: #fff2f4;
 }
-body.dark-mode #navbar .navbar {
-  background-color: rgba(15, 0, 0, 0.85);
+body.dark-mode #navbar {
+  background-color: rgba(15, 0, 0, 0.75);
   box-shadow: 0px 5px 15px 0px rgba(255, 153, 153, 0.1);
 }
-body.dark-mode #navbar .navbar .nav-link {
+body.dark-mode #navbar .container .nav-link {
   color: #fff2f4;
 }
-body.dark-mode #navbar .navbar .nav-link:hover, body.dark-mode #navbar .navbar .nav-link:active, body.dark-mode #navbar .navbar .nav-link:focus, body.dark-mode #navbar .navbar .nav-link.active {
+body.dark-mode #navbar .container .nav-link:hover {
   color: #ff9999;
+}
+body.dark-mode #navbar .container .nav-link:active, body.dark-mode #navbar .container .nav-link:focus, body.dark-mode #navbar .container .nav-link.active {
+  color: #de0000;
 }
 body.dark-mode #banner {
   background-image: url("../media/banner-dark.jpg");

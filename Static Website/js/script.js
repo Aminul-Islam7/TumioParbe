@@ -19,6 +19,20 @@ document
 	.querySelectorAll("img")
 	.forEach((img) => img.addEventListener("load", () => AOS.refresh()));
 
+//
+document.addEventListener("DOMContentLoaded", function () {
+	const hamburger = document.querySelector("#hamburger");
+	const navList = document.querySelector(".nav-list");
+	const navbar = document.querySelector("#navbar");
+
+	hamburger.addEventListener("click", function () {
+		navList.classList.toggle("show");
+		navbar.classList.toggle("increase-ht");
+		navbar.classList.toggle("overflowy-scroll");
+		this.classList.toggle("close");
+	});
+});
+
 $(document).ready(function () {
 	let section = document.querySelectorAll("section");
 	let navLinks = document.querySelectorAll("nav li");
@@ -288,6 +302,36 @@ particlesJS("particles", particlesConfig);
 
 // Dark Mode
 document.addEventListener("DOMContentLoaded", function () {
+	// Function to toggle dark mode and save state to local storage
+	function toggleDarkMode() {
+		const body = document.body;
+		const icon1 = document.querySelector(".color-theme-icon1");
+		const icon2 = document.querySelector(".color-theme-icon2");
+
+		// Toggle the dark mode class on the body
+		body.classList.toggle("dark-mode");
+
+		// Update the icon class based on dark mode state
+		const isDarkMode = body.classList.contains("dark-mode");
+		icon1.classList.toggle("fa-sun", !isDarkMode);
+		icon1.classList.toggle("fa-moon", isDarkMode);
+		icon2.classList.toggle("fa-sun", !isDarkMode);
+		icon2.classList.toggle("fa-moon", isDarkMode);
+
+		// Save the toggled state to local storage
+		localStorage.setItem("darkMode", isDarkMode);
+
+		// Refresh AOS animations
+		AOS.refresh();
+	}
+
+	// Event listener for the dark mode toggle buttons
+	const darkModeToggle1 = document.getElementById("dark-mode-toggle1");
+	darkModeToggle1.addEventListener("click", toggleDarkMode);
+
+	const darkModeToggle2 = document.getElementById("dark-mode-toggle2");
+	darkModeToggle2.addEventListener("click", toggleDarkMode);
+
 	// Function to detect system preference and set initial mode
 	function setInitialMode() {
 		const prefersDarkMode =
@@ -301,35 +345,13 @@ document.addEventListener("DOMContentLoaded", function () {
 			(prefersDarkMode && userPreference !== "false");
 		document.body.classList.toggle("dark-mode", isDarkMode);
 
-		const icon = document.querySelector(".color-theme-icon");
-		icon.classList.toggle("fa-sun", !isDarkMode);
-		icon.classList.toggle("fa-moon", isDarkMode);
+		const icon1 = document.querySelector(".color-theme-icon1");
+		const icon2 = document.querySelector(".color-theme-icon2");
+		icon1.classList.toggle("fa-sun", !isDarkMode);
+		icon1.classList.toggle("fa-moon", isDarkMode);
+		icon2.classList.toggle("fa-sun", !isDarkMode);
+		icon2.classList.toggle("fa-moon", isDarkMode);
 	}
-
-	// Function to toggle dark mode and save state to local storage
-	// Function to toggle dark mode and save state to local storage
-	function toggleDarkMode() {
-		const body = document.body;
-		const icon = document.querySelector(".color-theme-icon");
-
-		// Toggle the dark mode class on the body
-		body.classList.toggle("dark-mode");
-
-		// Update the icon class based on dark mode state
-		const isDarkMode = body.classList.contains("dark-mode");
-		icon.classList.toggle("fa-sun", !isDarkMode);
-		icon.classList.toggle("fa-moon", isDarkMode);
-
-		// Save the toggled state to local storage
-		localStorage.setItem("darkMode", isDarkMode);
-
-		// Refresh AOS animations
-		AOS.refresh();
-	}
-
-	// Event listener for the dark mode toggle button
-	const darkModeToggle = document.getElementById("dark-mode-toggle");
-	darkModeToggle.addEventListener("click", toggleDarkMode);
 
 	// Set the initial mode when the page loads
 	setInitialMode();

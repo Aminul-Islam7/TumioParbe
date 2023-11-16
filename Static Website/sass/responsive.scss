@@ -143,6 +143,58 @@
 @media (min-width: 768px) and (max-width: 991px) {
 }
 
+// ONLY FOR NAVBAR
+@media (max-width: 992px) {
+	#navbar {
+		height: 82px;
+		// overflow-y: scroll;
+		.container {
+			justify-content: space-between;
+
+			.darkmode-btn1 {
+				display: block;
+			}
+			.darkmode-btn2 {
+				display: none !important;
+			}
+
+			.logo img {
+				width: 62px;
+			}
+
+			.nav-list {
+				flex-direction: column;
+				width: 100%;
+				position: absolute;
+				top: 100px;
+				left: 0;
+				opacity: 0;
+				transition: 0.7s;
+
+				&.show {
+					opacity: 1;
+				}
+
+				.nav-item.action {
+					display: block !important;
+				}
+
+				.nav-link {
+					padding: 7px 500px;
+				}
+			}
+
+			.nav-buttons .action-btn {
+				display: none !important;
+			}
+
+			#hamburger {
+				display: block;
+			}
+		}
+	}
+}
+
 @media (min-width: 992px) and (max-width: 1199px) {
 }
 
@@ -172,18 +224,18 @@ body.dark-mode {
 	}
 
 	#navbar {
-		.navbar {
-			background-color: rgba(15, 0, 0, 0.85);
-			box-shadow: 0px 5px 15px 0px rgba(255, 153, 153, 0.1);
+		background-color: rgba(15, 0, 0, 0.75);
+		box-shadow: 0px 5px 15px 0px rgba(255, 153, 153, 0.1);
 
-			.nav-link {
-				color: $white;
-				&:hover,
-				&:active,
-				&:focus,
-				&.active {
-					color: $lightred;
-				}
+		.container .nav-link {
+			color: $white;
+			&:hover {
+				color: $lightred;
+			}
+			&:active,
+			&:focus,
+			&.active {
+				color: $red;
 			}
 		}
 	}
