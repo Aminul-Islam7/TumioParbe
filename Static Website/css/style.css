@@ -1030,19 +1030,21 @@ header #banner img {
 #contact .items .item .icon-holder i {
   font-size: 28px;
   color: #fff2f4;
-}
-#contact .items .item .title {
-  font-family: "Jost", sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  color: #0f0000;
-  margin: 20px 0 10px;
+  transition: 0.2s;
 }
 #contact .items .item .details {
   font-family: "Nunito", sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: rgba(0, 0, 15, 0.75);
+  transition: 0.2s;
+}
+#contact .items .item .details .title {
+  font-family: "Jost", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #0f0000;
+  margin: 20px 0 10px;
 }
 #contact .items .item .details:hover {
   color: #0f0000;

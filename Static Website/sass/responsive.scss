@@ -313,25 +313,25 @@ body.dark-mode {
 	#contact {
 		.item {
 			background-color: rgba(0, 0, 0, 0.7);
-			border-top: 4px solid $lightred;
+			border-top: 4px solid $red;
 			box-shadow: 0 5px 15px rgb(255 153 153 / 20%);
 			color: $white;
 
 			.icon-holder {
-				background: $lightred;
+				background: $red;
 
 				i {
 					font-size: 28px;
-					color: $darkred;
+					color: $white;
 				}
 			}
 
-			.title {
-				color: $white;
-			}
-
 			.details {
-				color: #999;
+				color: rgba(255, 242, 242, 0.85);
+
+				.title {
+					color: $white;
+				}
 
 				&:hover {
 					color: $white;
@@ -339,7 +339,8 @@ body.dark-mode {
 			}
 
 			a {
-				color: #999;
+				color: $white;
+				opacity: 0.8;
 
 				&:hover,
 				&:visited {
@@ -348,11 +349,11 @@ body.dark-mode {
 			}
 
 			&:hover {
-				border-color: $red;
+				border-color: $lightred;
 				.icon-holder {
-					background: $red;
+					background: $lightred;
 					i {
-						color: $white;
+						color: $darkred;
 					}
 				}
 			}

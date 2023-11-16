@@ -783,40 +783,41 @@ body.dark-mode #about .vision i {
 }
 body.dark-mode #contact .item {
   background-color: rgba(0, 0, 0, 0.7);
-  border-top: 4px solid #ff9999;
+  border-top: 4px solid #de0000;
   box-shadow: 0 5px 15px rgba(255, 153, 153, 0.2);
   color: #fff2f4;
 }
 body.dark-mode #contact .item .icon-holder {
-  background: #ff9999;
+  background: #de0000;
 }
 body.dark-mode #contact .item .icon-holder i {
   font-size: 28px;
-  color: #660505;
-}
-body.dark-mode #contact .item .title {
   color: #fff2f4;
 }
 body.dark-mode #contact .item .details {
-  color: #999;
+  color: rgba(255, 242, 242, 0.85);
+}
+body.dark-mode #contact .item .details .title {
+  color: #fff2f4;
 }
 body.dark-mode #contact .item .details:hover {
   color: #fff2f4;
 }
 body.dark-mode #contact .item a {
-  color: #999;
+  color: #fff2f4;
+  opacity: 0.8;
 }
 body.dark-mode #contact .item a:hover, body.dark-mode #contact .item a:visited {
   color: #ff9999;
 }
 body.dark-mode #contact .item:hover {
-  border-color: #de0000;
+  border-color: #ff9999;
 }
 body.dark-mode #contact .item:hover .icon-holder {
-  background: #de0000;
+  background: #ff9999;
 }
 body.dark-mode #contact .item:hover .icon-holder i {
-  color: #fff2f4;
+  color: #660505;
 }
 body.dark-mode #contact .socials a {
   background-color: rgba(255, 242, 242, 0.2);

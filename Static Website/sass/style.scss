@@ -693,16 +693,18 @@ header {
 				i {
 					font-size: 28px;
 					color: $white;
+					transition: 0.2s;
 				}
-			}
-
-			.title {
-				@include font(Jost, 22px, 500, $black);
-				margin: 20px 0 10px;
 			}
 
 			.details {
 				@include font(Nunito, 14px, 500, rgba(0, 0, 15, 0.75));
+				transition: 0.2s;
+
+				.title {
+					@include font(Jost, 22px, 500, $black);
+					margin: 20px 0 10px;
+				}
 
 				&:hover {
 					color: $black;
