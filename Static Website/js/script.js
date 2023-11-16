@@ -10,16 +10,11 @@ AOS.init({
 	anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
 });
 
-// function addDarkmodeWidget() {
-// 	new Darkmode().showWidget();
-// }
-// window.addEventListener("load", addDarkmodeWidget);
-
 document
 	.querySelectorAll("img")
 	.forEach((img) => img.addEventListener("load", () => AOS.refresh()));
 
-//
+// Hamburger Menu Toggle
 document.addEventListener("DOMContentLoaded", function () {
 	const hamburger = document.querySelector("#hamburger");
 	const navList = document.querySelector(".nav-list");
